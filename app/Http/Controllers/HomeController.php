@@ -26,16 +26,6 @@ class HomeController extends Controller
         return view('gantipin');
     }
 
-    public function login()
-    {
-        return view('login');
-    }
-
-    public function logout()
-    {
-        return view('logout');
-    }
-
     public function services()
     {
         return view('services');

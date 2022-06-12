@@ -23,10 +23,6 @@ Route::get('/ceksaldo', [HomeController::class, 'ceksaldo'] )->name('ceksaldo');
 
 Route::get('/gantipin', [HomeController::class, 'gantipin'] )->name('gantipin');
 
-Route::get('/login', [HomeController::class, 'login'] )->name('login');
-
-Route::get('/logout', [HomeController::class, 'logout'] )->name('logout');
-
 Route::get('/services', [HomeController::class, 'services'] )->name('services');
 
 Route::get('/signform', [HomeController::class, 'signform'] )->name('signform');
