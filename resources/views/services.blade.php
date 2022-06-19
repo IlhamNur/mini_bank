@@ -6,7 +6,7 @@
 <section class="w3l-breadcrumb">
     <div class="container">
         <ul class="breadcrumbs-custom-path">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>Services</li>
         </ul>
     </div>
@@ -20,21 +20,21 @@
             <div class="col-lg-4 col-md-6 grids-feature">
                 <div class="area-box">
                     <span class="fa fa-dollar mt-0"></span>
-                    <h4><a href="transfer.php" class="title-head">Transfer</a></h4>
+                    <h4><a href="/transfer" class="title-head">Transfer</a></h4>
                     <p class="">Terdapat layanan transaksi transfer ke rekening sendiri, sesama, antar bank dan Virtual Account Billing.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-4">
                 <div class="area-box">
                     <span class="fa fa-credit-card mt-0"></span>
-                    <h4><a href="gantipin.php" class="title-head">Ganti PIN</a></h4>
+                    <h4><a href="/gantipin" class="title-head">Ganti PIN</a></h4>
                     <p class="">Terdapat layanan penggantian PIN untuk menjaga privasi dan keamanan Anda dalam melakukan transaksi.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 grids-feature mt-lg-0 mt-4">
                 <div class="area-box">
                     <span class="fa fa-money mt-0"></span>
-                    <h4><a href="ceksaldo.php" class="title-head">Cek Saldo</a></h4>
+                    <h4><a href="/ceksaldo" class="title-head">Cek Saldo</a></h4>
                     <p class="">Terdapat layanan untuk mengecek jumlah saldo (uang) yang masih tersisa pada tabungan Anda saat ini.</p>
                 </div>
             </div>

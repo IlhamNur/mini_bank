@@ -53,11 +53,17 @@
                     frameborder="0" allowfullscreen=""></iframe>
             </div> -->
             <div class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4" >
-                <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+                <form action="{{ route('register') }}" method="post" class="signin-form">
+                    @csrf
                     <div class="form-input">
-                        <input type="text" name="w3lName" id="w3lName" placeholder="Nama lengkap Anda" required="">
+                        <input type="text" name="name" id="w3lName" placeholder="Nama lengkap Anda" value="{{ old('name') }}" required autocomplete="name" autofocus class="form-control @error('name') is-invalid @enderror">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                    <div class="form-input">
+                    <!-- <div class="form-input">
                       <textarea type="text" name="w3lAddress" id="w3lAddress" placeholder="Alamat tinggal Anda" required=""></textarea>
                     </div>
                     <div class="form-input">
@@ -65,16 +71,29 @@
                     </div>
                     <div class="form-input">
                       <input type="number" name="w3lRekening" id="w3lRekening" placeholder="Nomor kartu bank Anda" required="">
+                    </div> -->
+                    <div class="form-input">
+                        <input type="email" name="email" id="w3lSender" placeholder="Email Anda" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-input">
-                        <input type="email" name="w3lSender" id="w3lSender" placeholder="Email Anda" required="">
+                        <input type="password" name="password" id="w3lPassword" placeholder="Password Anda" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="form-input">
-                        <input type="password" name="password" id="w3lPassword" placeholder="Password Anda" required="">
+                        <input type="password" name="password_confirmation" id="password-confirm" placeholder="Konfirmasi Password" class="form-control" required autocomplete="new-password">
                     </div>
-                    <div class="form-input">
+                    <!-- <div class="form-input">
                       <input type="text" name="w3lMother" id="w3lMother" placeholder="Nama ibu kandung Anda" required="">
-                    </div>
+                    </div> -->
                     <div class="text-right">
                         <button type="submit" class="btn btn-style btn-primary">Sign Up</button>
                     </div>

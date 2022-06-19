@@ -9,13 +9,16 @@ Author URL: http://w3layouts.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>MINK - Home</title>
+    <title>MINK</title>
     
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="logo.ico">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
 <!--header-->
@@ -45,15 +48,37 @@ Author URL: http://w3layouts.com
                   <li class="nav-item @@services__active">
                       <a class="nav-link" href="/services">Services</a>
                   </li>
-                  <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="/signform">Login/Signup</a>
-                  </li>
+                  @guest
+                    @if (Route::has('login'))     
+                      <li class="nav-item @@contact__active">
+                        <a class="nav-link" href="{{ route('login') }}">Login/Signup</a>
+                      </li>
+                    @endif
+                  @else
+                      <li class="nav-item @@contact__active dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                          </a>
+
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                          </form>
+                        </div>
+                      </li>
+                  @endguest
                   <!--/search-right-->
                   <div class="search mr-3">
                       <input class="search_box" type="checkbox" id="search_box">
                       <label class="fa fa-search" for="search_box"></label>
                       <div class="search_form">
-                          <form action="error.php" method="GET">
+                          <form action="" method="GET">
                               <input type="text" placeholder="Search"><input type="submit" value="search">
                           </form>
                       </div>
@@ -244,7 +269,8 @@ Author URL: http://w3layouts.com
 </script>
 <!--//MENU-JS-->
 
-<script src="assets/js/bootstrap.min.js"></script><!-- //bootstrap js -->
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script><!-- //bootstrap js -->
 
 <script>
 

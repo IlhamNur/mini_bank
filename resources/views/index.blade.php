@@ -16,7 +16,7 @@
                                         <p class="mt-md-4 mt-3">MINK (Mini Bank) adalah bank swasta yang didirikan pada tahun 2022.
                                             Menyediakan segala layanan perbankan untuk memuaskan para pelanggan.
                                         </p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="/signform">Sign in </a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in </a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -38,7 +38,7 @@
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Transfer kemanapun</h5>
                                         <p class="mt-md-4 mt-3"> MINK memudahkan kalian untuk melakukan transfer kemanapun dan kapanpun.</p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="/signform">Sign in</a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -60,7 +60,7 @@
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Kustomisasi akunmu </h5>
                                         <p class="mt-md-4 mt-3">Log in ke akun anda untuk mengubah username maupun pin</p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="/signform">Sign in</a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -85,7 +85,7 @@
                                             kemudahan mendapatkan informasi, melakukan transaksi dan memperoleh solusi 
                                             digital atas setiap permasalahan.
                                         </p>
-                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="/signform">Sign in</a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">Read More</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -416,7 +416,7 @@
                  <h4 class="title-big">Buat akunmu sekarang!</h4>
              </div>
              <div class="col-lg-5 mt-lg-0 mt-4">
-                 <a class="btn btn-style btn-dark" href="/signform"> Buka rekening</a>
+                 <a class="btn btn-style btn-dark" href="{{ route('login') }}"> Buka rekening</a>
              </div>
          </div>
      </div>

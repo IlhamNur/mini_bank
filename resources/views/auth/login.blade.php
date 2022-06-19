@@ -52,18 +52,29 @@
                     frameborder="0" allowfullscreen=""></iframe>
             </div> -->
           <div class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4">
-            <form action="" method="post" class="signin-form">
+            <form action="{{ route('login') }}" method="post" class="signin-form">
+              @csrf
               <div class="form-input">
-                <input type="email" name="email" id="w3lSender" placeholder="Email Anda" required="" />
+                <input type="email" name="email" id="email" placeholder="Email Anda" required autocomplete="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" autofocus/>
+                @error('email')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="form-input">
-                <input type="password" name="password" id="w3lPassword" placeholder="Password Anda" required="" />
+                <input type="password" name="password" id="password" placeholder="Password Anda" required autocomplete="current-password" class="form-control @error('password') is-invalid @enderror"/>
+                @error('password')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-style btn-primary">Log In</button>
               </div>
               <div class="text-left">
-                <p class="mt-2 mx-lg-5">Tidak mempunyai akun? <a href="/signform2">Klik disini.</a></p>
+                <p class="mt-2 mx-lg-5">Tidak mempunyai akun? <a href="{{ route('register') }}">Klik disini.</a></p>
               </div>
             </form>
           </div>

@@ -30,3 +30,11 @@ Route::get('/signform', [HomeController::class, 'signform'] )->name('signform');
 Route::get('/signform2', [HomeController::class, 'signform2'] )->name('signform2');
 
 Route::get('/transfer', [HomeController::class, 'transfer'] )->name('transfer');
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

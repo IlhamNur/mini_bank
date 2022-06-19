@@ -6,7 +6,7 @@
 <section class="w3l-breadcrumb">
     <div class="container">
         <ul class="breadcrumbs-custom-path">
-            <li><a href="services.php">Services</a></li>
+            <li><a href="/services">Services</a></li>
             <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Cek Saldo</li>
         </ul>
     </div>
