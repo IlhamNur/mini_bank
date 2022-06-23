@@ -19,19 +19,19 @@ Route::get('/', [HomeController::class, 'index'] )->name('index');
 
 Route::get('/about', [HomeController::class, 'about'] )->name('about');
 
-Route::get('/ceksaldo', [HomeController::class, 'ceksaldo'] )->name('ceksaldo');
-
-Route::get('/gantipin', [HomeController::class, 'gantipin'] )->name('gantipin');
-
-Route::get('/services', [HomeController::class, 'services'] )->name('services');
-
-Route::get('/signform', [HomeController::class, 'signform'] )->name('signform');
-
-Route::get('/signform2', [HomeController::class, 'signform2'] )->name('signform2');
-
-Route::get('/transfer', [HomeController::class, 'transfer'] )->name('transfer');
-
 Auth::routes();
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/services', [HomeController::class, 'services'] )->name('services');
+    
+    Route::get('/ceksaldo', [HomeController::class, 'ceksaldo'] )->name('ceksaldo');
+    
+    Route::get('/gantipin', [HomeController::class, 'gantipin'] )->name('gantipin');
+
+    Route::get('/transfer', [HomeController::class, 'transfer'] )->name('transfer');
+
+});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

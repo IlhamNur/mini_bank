@@ -8,41 +8,43 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        return view('index');
+        return view('index', [
+            'title' => 'Home'
+        ]);
     }
 
     public function about()
     {
-        return view('about');
+        return view('about', [
+            'title' => 'About Us'
+        ]);
     }
 
     public function ceksaldo()
     {
-        return view('ceksaldo');
+        return view('ceksaldo', [
+            'title' => 'Cek Saldo'
+        ]);
     }
 
     public function gantipin()
     {
-        return view('gantipin');
+        return view('gantipin', [
+            'title' => 'Ganti Pin'
+        ]);
     }
 
     public function services()
     {
-        return view('services');
-    }
-
-    public function signform()
-    {
-        return view('signform');
-    }
-
-    public function signform2()
-    {
-        return view('signform2');
+        return view('services', [
+            'title' => 'Services'
+        ]);
     }
 
     public function transfer()
     {
-        return view('transfer');
+        return view('transfer', [
+            'title' => 'Transfer'
+        ]);
     }
 }

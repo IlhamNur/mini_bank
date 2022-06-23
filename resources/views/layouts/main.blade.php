@@ -9,7 +9,7 @@ Author URL: http://w3layouts.com
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>MINK</title>
+    <title>{{ $title }}</title>
     
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="logo.ico">
@@ -39,15 +39,17 @@ Author URL: http://w3layouts.com
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
+                  <li class="nav-item {{ ($title === "Home") ? 'active' : '' }}">
                       <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item @@about__active">
+                  <li class="nav-item {{ ($title === "About Us") ? 'active' : '' }}  ">
                       <a class="nav-link" href="/about">About</a>
                   </li>
-                  <li class="nav-item @@services__active">
+                  @auth
+                  <li class="nav-item {{ ($title === "Services") ? 'active' : '' }}  ">
                       <a class="nav-link" href="/services">Services</a>
                   </li>
+                  @endauth
                   @guest
                     @if (Route::has('login'))     
                       <li class="nav-item @@contact__active">
@@ -125,8 +127,10 @@ Author URL: http://w3layouts.com
               <li><a href="/about">About Us</a></li>
               <!-- <li><a href="#blog"> Blog posts</a></li>
               <li><a href="#pricing"> Pricing plans</a></li> -->
+              @auth
               <li><a href="/services">Services</a></li>
-              <li><a href="/contact">Contact us</a></li>
+              @endauth
+              <!-- <li><a href="/contact">Contact us</a></li> -->
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-7 col-7 footer-list-29 footer-3 mt-lg-0 mt-5">

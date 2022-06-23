@@ -60,7 +60,7 @@
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Kustomisasi akunmu </h5>
                                         <p class="mt-md-4 mt-3">Log in ke akun anda untuk mengubah username maupun pin</p>
-                                        <a class="btn btn-style btn-primary1 mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
+                                        <a class="btn btn-style btn-primary11 mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
