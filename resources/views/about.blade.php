@@ -26,7 +26,7 @@
             <p class="justify">Nikmati kemudahan mengatur portofolio dana Anda dengan memanfaatkan fitur Pembukaan
               Deposito di Internet Banking. Anda dapat membuka Deposito minimal Rp. 5.000.000 dengan minimal jangka
               waktu 1 bulan</p>
-            <a class="btn btn-style btn-primary mt-md-5 mt-4" href="/about">Selengkapnya</a>
+            <a class="btn btn-style btn-primary1 mt-md-5 mt-4" href="/about">Selengkapnya</a>
           </div>
         </div>
       </div>
@@ -262,7 +262,7 @@
                               <textarea name="w3lMessage" id="w3lMessage" placeholder="Your message" required=""></textarea>
                           </div>
                           <div class="text-right">
-                              <button type="submit" class="btn btn-style btn-primary">Submit</button>
+                              <button type="submit" class="btn btn-style btn-primary1">Submit</button>
                           </div>
                       </form>
                   </div>

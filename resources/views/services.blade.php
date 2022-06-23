@@ -49,7 +49,7 @@
             <h3 class="title-big">Apakah Masih Ada Pertanyaan?</h3>
             <h3 class="mt-4">Silahkan Hubungi Kami Di : <a href="tel:+62 877 3461 4227">+62 877 3461 4227</a> </h3>
             <p class="mt-4">Apabila Anda menghubungi nomor yang tertera, Anda akan dikenakan biaya normal.</p>
-            <a href="mailto:minibank.id@support.com" class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2">Hubungi Kami</a>
+            <a href="mailto:minibank.id@support.com" class="btn btn-style btn-primary1 mt-sm-5 mt-4 mr-2">Hubungi Kami</a>
         </div>
     </div>
 </div>
