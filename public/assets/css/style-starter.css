@@ -23,7 +23,7 @@ Author URL: http://w3layouts.com
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --primary: #ff7116;
+    --primary1: #ff7116;
     --secondary: #f8b195;
     --success: #28a745;
     --info: #17a2b8;
@@ -15886,43 +15886,6 @@ a.testi-img {
     .w3l-contact-info .text-box h3 {
         font-size: 18px;
     }
-}
-
-/* Style The Dropdown Button */
-.dropbtn {
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
 /*# sourceMappingURL=style-starter.css.map */

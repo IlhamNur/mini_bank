@@ -56,11 +56,11 @@ Author URL: http://w3layouts.com
                     @endif
                   @else
                       <li class="nav-item @@contact__active dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle dropbtn" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-content dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                           <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
@@ -107,13 +107,13 @@ Author URL: http://w3layouts.com
 <!--/header-->
 @yield('content')
  <!-- footer -->
- <section class="w3l-footer-29-main">
+<section class="w3l-footer-29-main">
     <div class="footer-29 py-5">
       <div class="container py-lg-4">
         <div class="row footer-top-29">
           <div class="col-lg-4 col-md-6 footer-list-29 footer-1 pr-lg-5">
             <div class="footer-logo mb-4">
-              <a class="navbar-brand" href="/"><img src="assets/images/logo.png" alt="Your logo" title="Your logo" style="height:35px;"/> MINK</a>
+              <a class="navbar-brand" href="#index.php"><img src="assets/images/logo.png" alt="Your logo" title="Your logo" style="height:35px;"/> MINK</a>
             </div>
             <p>Kami adalah lembaga keuangan terkemuka yang menyediakan layanan perbankan berskala nasional berkualitas tinggi. Kesuksesan kami
               terwujud berkat dukungan dari pelanggan setia kami. Kami menyediakan layanan yang dapat diandalkan untuk Anda.</p>
@@ -122,13 +122,11 @@ Author URL: http://w3layouts.com
   
             <ul>
               <h6 class="footer-title-29">Quick Links</h6>
-              <li><a href="/about">About Us</a></li>
+              <li><a href="about.php">About Us</a></li>
               <!-- <li><a href="#blog"> Blog posts</a></li>
               <li><a href="#pricing"> Pricing plans</a></li> -->
-              @auth
-              <li><a href="/services">Services</a></li>
-              @endauth
-              <!-- <li><a href="/contact">Contact us</a></li> -->
+              <li><a href="services.php">Services</a></li>
+              <li><a href="contact.php">Contact us</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-7 col-7 footer-list-29 footer-3 mt-lg-0 mt-5">
@@ -270,6 +268,9 @@ Author URL: http://w3layouts.com
   });
 </script>
 <!--//MENU-JS-->
+
+<script src="assets/js/bootstrap.min.js"></script><!-- //bootstrap js -->
+
 <script>
 
 function showPass() {
