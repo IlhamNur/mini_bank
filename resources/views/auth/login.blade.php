@@ -18,7 +18,6 @@ Author URL: http://w3layouts.com
     <link rel="stylesheet" href="assets/css/style-starter.css">
     
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
 <!--header-->
@@ -177,7 +176,7 @@ Author URL: http://w3layouts.com
                 @enderror
               </div>
               <div class="text-right">
-                <button type="submit" class="btn btn-style btn-primary1">Log In</button>
+                <button type="submit" class="btn btn-style btn-primary">Log In</button>
               </div>
               <div class="text-left">
                 <p class="mt-2 mx-lg-5">Tidak mempunyai akun? <a href="{{ route('register') }}">Klik disini.</a></p>
@@ -351,9 +350,6 @@ Author URL: http://w3layouts.com
   });
 </script>
 <!--//MENU-JS-->
-
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script><!-- //bootstrap js -->
 
 <script>
 

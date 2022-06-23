@@ -46,7 +46,7 @@
                             required="">
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-style btn-primary1">Ganti PIN</button>
+                        <button type="submit" class="btn btn-style btn-primary">Ganti PIN</button>
                     </div>
                 </form>
             </div>

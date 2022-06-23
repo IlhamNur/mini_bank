@@ -41,7 +41,7 @@
                         <input type="text"  name="Jumlah Transfer" id="broker_fees" placeholder="Jumlah Transfer - Minimal Rp 10.000" required="required">
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-style btn-primary1">Transfer</button>
+                        <button type="submit" class="btn btn-style btn-primary">Transfer</button>
                     </div>
                 </form>
             </div>

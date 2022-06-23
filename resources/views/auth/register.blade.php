@@ -201,7 +201,7 @@ Author URL: http://w3layouts.com
                       <input type="text" name="w3lMother" id="w3lMother" placeholder="Nama ibu kandung Anda" required="">
                     </div> -->
                     <div class="text-right">
-                        <button type="submit" class="btn btn-style btn-primary1">Sign Up</button>
+                        <button type="submit" class="btn btn-style btn-primary">Sign Up</button>
                     </div>
                 </form>
             </div>

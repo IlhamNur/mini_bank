@@ -35,7 +35,7 @@
                             required="">
                     </div> 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-style btn-primary1">Cek Saldo</button>
+                        <button type="submit" class="btn btn-style btn-primary">Cek Saldo</button>
                     </div>
                 </form>
             </div>

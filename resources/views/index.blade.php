@@ -16,7 +16,7 @@
                                         <p class="mt-md-4 mt-3">MINK (Mini Bank) adalah bank swasta yang didirikan pada tahun 2022.
                                             Menyediakan segala layanan perbankan untuk memuaskan para pelanggan.
                                         </p>
-                                        <a class="btn btn-style btn-primary1 mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in </a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in </a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -38,7 +38,7 @@
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Transfer kemanapun</h5>
                                         <p class="mt-md-4 mt-3"> MINK memudahkan kalian untuk melakukan transfer kemanapun dan kapanpun.</p>
-                                        <a class="btn btn-style btn-primary1 mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -60,7 +60,7 @@
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Kustomisasi akunmu </h5>
                                         <p class="mt-md-4 mt-3">Log in ke akun anda untuk mengubah username maupun pin</p>
-                                        <a class="btn btn-style btn-primary11 mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -85,7 +85,7 @@
                                             kemudahan mendapatkan informasi, melakukan transaksi dan memperoleh solusi 
                                             digital atas setiap permasalahan.
                                         </p>
-                                        <a class="btn btn-style btn-primary1 mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
+                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">Read More</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
@@ -168,7 +168,7 @@
                         ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet
                         elit. Non quae, fugiat nihil ad. Lorem ipsum dolor sit amet. Lorem ipsum init
                         dolor sit, amet elit. Dolor ipsum non velit, culpa! Vivamus a et ut justo, init in dolor et.</p>
-                    <a class="btn btn-style btn-primary1 mt-sm-5 mt-4 mr-2" href="/about"> Learn More</a>
+                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="/about"> Learn More</a>
                 </div>
                 <div class="col-lg-5">
                     <div class="position-relative">
@@ -264,7 +264,7 @@
 
             </div>
             <!-- <div class="text-center">
-                <a class="btn btn-style btn-primary1 mt-sm-5 mt-4 mr-2" href="#book"> View more advanced features</a>
+                <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#book"> View more advanced features</a>
             </div> -->
         </div>
         <!-- //mobile-info-->
@@ -514,7 +514,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a class="btn btn-style btn-primary1 mt-sm-5 mt-4" href="#blog">View all blog posts</a>
+                <a class="btn btn-style btn-primary mt-sm-5 mt-4" href="#blog">View all blog posts</a>
             </div>
         </div>
     </section>
