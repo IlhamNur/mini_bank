@@ -43,11 +43,9 @@ Author URL: http://w3layouts.com
                   <li class="nav-item {{ ($title === "About Us") ? 'active' : '' }}  ">
                       <a class="nav-link" href="/about">About</a>
                   </li>
-                  @if (auth()->user()->level=="Nasabah")
                   <li class="nav-item {{ ($title === "Services") ? 'active' : '' }}  ">
                       <a class="nav-link" href="/services">Services</a>
                   </li>
-                  @endif
                   @guest
                     @if (Route::has('login'))     
                       <li class="nav-item @@contact__active">

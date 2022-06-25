@@ -17,11 +17,13 @@ Route::resource('home', HomeController::class);
 
 Route::get('/', [HomeController::class, 'index'] )->name('index');
 
+Route::get('/about', [HomeController::class, 'about'] )->name('about');
+
+Route::get('/services', [HomeController::class, 'services'] )->name('services');
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth', 'ceklevel:Nasabah']], function () {
-
-    Route::get('/services', [HomeController::class, 'services'] )->name('services');
     
     Route::get('/ceksaldo', [HomeController::class, 'ceksaldo'] )->name('ceksaldo');
     
@@ -33,7 +35,6 @@ Route::group(['middleware' => ['auth', 'ceklevel:Nasabah']], function () {
 
 Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
 
-    Route::get('/about', [HomeController::class, 'about'] )->name('about');
     
 });
 

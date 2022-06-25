@@ -45,11 +45,9 @@ Author URL: http://w3layouts.com
                   <li class="nav-item @@about__active">
                       <a class="nav-link" href="/about">About</a>
                   </li>
-                  @auth
                   <li class="nav-item @@services__active">
                       <a class="nav-link" href="/services">Services</a>
                   </li>
-                  @endauth
                   @guest
                     @if (Route::has('login'))     
                       <li class="nav-item @@contact__active">
@@ -227,9 +225,7 @@ Author URL: http://w3layouts.com
               <li><a href="/about">About Us</a></li>
               <!-- <li><a href="#blog"> Blog posts</a></li>
               <li><a href="#pricing"> Pricing plans</a></li> -->
-              @auth
               <li><a href="/services">Services</a></li>
-              @endauth
               <!-- <li><a href="/contact">Contact us</a></li> -->
             </ul>
           </div>
