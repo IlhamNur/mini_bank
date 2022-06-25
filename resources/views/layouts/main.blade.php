@@ -49,7 +49,7 @@ Author URL: http://w3layouts.com
                   @guest
                     @if (Route::has('login'))     
                       <li class="nav-item @@contact__active">
-                        <a class="nav-link" href="{{ route('login') }}">Login/Signup</a>
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
                       </li>
                     @endif
                   @else

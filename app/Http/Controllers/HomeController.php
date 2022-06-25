@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SignUp;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -45,6 +46,14 @@ class HomeController extends Controller
     {
         return view('transfer', [
             'title' => 'Transfer'
+        ]);
+    }
+
+    public function signup()
+    {
+        $sign_ups = SignUp::get();
+        return view('signupform', compact('sign_ups'), [
+            'title' => 'Sign Up'
         ]);
     }
 }

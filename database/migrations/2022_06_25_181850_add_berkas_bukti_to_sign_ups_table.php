@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->text('address');
-            $table->string('hp');
-            $table->string('mother');
+        Schema::table('sign_ups', function (Blueprint $table) {
+            $table->string('berkas_bukti');
         });
     }
 
@@ -27,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('sign_ups', function (Blueprint $table) {
+            $table->dropColumn('berkas_bukti');
         });
     }
 };

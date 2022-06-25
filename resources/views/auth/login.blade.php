@@ -50,7 +50,7 @@ Author URL: http://w3layouts.com
                   @guest
                     @if (Route::has('login'))     
                       <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('login') }}">Login/Signup</a>
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
                       </li>
                     @endif
                   @else
@@ -177,7 +177,7 @@ Author URL: http://w3layouts.com
                 <button type="submit" class="btn btn-style btn-primary">Log In</button>
               </div>
               <div class="text-left">
-                <p class="mt-2 mx-lg-5">Tidak mempunyai akun? <a href="{{ route('register') }}">Klik disini.</a></p>
+                <p class="mt-2 mx-lg-5">Tidak mempunyai akun? <a href="/signup">Klik disini.</a></p>
               </div>
             </form>
           </div>
