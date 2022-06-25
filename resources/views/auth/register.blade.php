@@ -165,7 +165,7 @@ Author URL: http://w3layouts.com
                             </span>
                         @enderror
                     </div>
-                    <!-- <div class="form-input">
+                    <div class="form-input">
                       <textarea type="text" name="address" id="w3lAddress" placeholder="Alamat tinggal Anda" value="{{ old('address') }}" required autocomplete="address" autofocus class="form-control @error('address') is-invalid @enderror"></textarea>
                       @error('address')
                             <span class="invalid-feedback" role="alert">
@@ -188,7 +188,7 @@ Author URL: http://w3layouts.com
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div> -->
+                    </div>
                     <div class="form-input">
                         <input type="email" name="email" id="w3lSender" placeholder="Email Anda" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email">
                         @error('email')
@@ -213,14 +213,14 @@ Author URL: http://w3layouts.com
                             </span>
                         @enderror
                       </div>
-                    <!-- <div class="form-input">
+                    <div class="form-input">
                       <input type="text" name="mother" id="w3lMother" placeholder="Nama ibu kandung Anda" value="{{ old('mother') }}" class="form-control @error('mother') is-invalid @enderror" required autocomplete="mother">
                       @error('mother')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div> -->
+                    </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-style btn-primary">Sign Up</button>
                     </div>
