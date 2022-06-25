@@ -21,7 +21,7 @@
                 <div class="area-box">
                     <span class="fa fa-dollar mt-0"></span>
                     <h4><a href="/transfer" class="title-head">Transfer</a></h4>
-                    <p class="">Terdapat layanan transaksi transfer ke rekening sendiri, sesama, antar bank dan Virtual Account Billing.</p>
+                    <p class="">Terdapat layanan transaksi transfer ke rekening sendiri, sesama, antar bank dan Virtual Account Billing sesuai kebutuhan Anda.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-4">

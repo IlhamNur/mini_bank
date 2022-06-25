@@ -43,11 +43,11 @@ Author URL: http://w3layouts.com
                   <li class="nav-item {{ ($title === "About Us") ? 'active' : '' }}  ">
                       <a class="nav-link" href="/about">About</a>
                   </li>
-                  @auth
+                  @if (auth()->user()->level=="Nasabah")
                   <li class="nav-item {{ ($title === "Services") ? 'active' : '' }}  ">
                       <a class="nav-link" href="/services">Services</a>
                   </li>
-                  @endauth
+                  @endif
                   @guest
                     @if (Route::has('login'))     
                       <li class="nav-item @@contact__active">
@@ -125,8 +125,10 @@ Author URL: http://w3layouts.com
               <li><a href="about.php">About Us</a></li>
               <!-- <li><a href="#blog"> Blog posts</a></li>
               <li><a href="#pricing"> Pricing plans</a></li> -->
+              @auth
               <li><a href="services.php">Services</a></li>
-              <li><a href="contact.php">Contact us</a></li>
+              @endauth
+              <!-- <li><a href="contact.php">Contact us</a></li> -->
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-7 col-7 footer-list-29 footer-3 mt-lg-0 mt-5">

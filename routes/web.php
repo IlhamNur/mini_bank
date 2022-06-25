@@ -17,11 +17,9 @@ Route::resource('home', HomeController::class);
 
 Route::get('/', [HomeController::class, 'index'] )->name('index');
 
-Route::get('/about', [HomeController::class, 'about'] )->name('about');
-
 Auth::routes();
 
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => ['auth', 'ceklevel:Nasabah']], function () {
 
     Route::get('/services', [HomeController::class, 'services'] )->name('services');
     
@@ -30,6 +28,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/gantipin', [HomeController::class, 'gantipin'] )->name('gantipin');
 
     Route::get('/transfer', [HomeController::class, 'transfer'] )->name('transfer');
+
+});
+
+Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
+
+    Route::get('/about', [HomeController::class, 'about'] )->name('about');
+    
+});
+
+Route::group(['middleware' => ['auth', 'ceklevel:CustomerService']], function () {
+
+});
+
+Route::group(['middleware' => ['auth', 'ceklevel:Teller']], function () {
 
 });
 
