@@ -13,18 +13,18 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::resource('home', HomeController::class);
-
-Route::get('/', [HomeController::class, 'index'] )->name('index');
+Route::get('/', [HomeController::class, 'index'] )->name('home');
 
 Route::get('/about', [HomeController::class, 'about'] )->name('about');
-
+    
 Route::get('/services', [HomeController::class, 'services'] )->name('services');
-
+    
+Route::get('/dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
+    
 Auth::routes();
 
-Route::group(['middleware' => ['auth', 'ceklevel:Nasabah']], function () {
-    
+Route::group(['middleware' => ['role:nasabah']], function () {
+
     Route::get('/ceksaldo', [HomeController::class, 'ceksaldo'] )->name('ceksaldo');
     
     Route::get('/gantipin', [HomeController::class, 'gantipin'] )->name('gantipin');
@@ -33,21 +33,14 @@ Route::group(['middleware' => ['auth', 'ceklevel:Nasabah']], function () {
 
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
-
-    
+Route::group(['middleware' => ['role:admin']], function () {
+    //
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:CustomerService']], function () {
-
+Route::group(['middleware' => ['role:cs']], function () {
+    //
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:Teller']], function () {
-
+Route::group(['middleware' => ['role:teller']], function () {
+    //
 });
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

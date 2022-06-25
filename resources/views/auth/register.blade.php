@@ -16,9 +16,7 @@ Author URL: http://w3layouts.com
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
-    
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
   </head>
   <body>
 <!--header-->
@@ -168,13 +166,28 @@ Author URL: http://w3layouts.com
                         @enderror
                     </div>
                     <!-- <div class="form-input">
-                      <textarea type="text" name="w3lAddress" id="w3lAddress" placeholder="Alamat tinggal Anda" required=""></textarea>
+                      <textarea type="text" name="address" id="w3lAddress" placeholder="Alamat tinggal Anda" value="{{ old('address') }}" required autocomplete="address" autofocus class="form-control @error('address') is-invalid @enderror"></textarea>
+                      @error('address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                      @enderror
                     </div>
                     <div class="form-input">
-                      <input type="number" name="w3lHP" id="w3lHP" placeholder="Nomor handphone Anda" required="">
+                      <input type="tel" name="hp" id="w3lHP" placeholder="Nomor handphone Anda" value="{{ old('hp') }}" required autocomplete="hp" autofocus class="form-control @error('hp') is-invalid @enderror">
+                      @error('hp')
+                          <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                      @enderror
                     </div>
                     <div class="form-input">
-                      <input type="number" name="w3lRekening" id="w3lRekening" placeholder="Nomor kartu bank Anda" required="">
+                      <input type="number" name="rekening" id="w3lRekening" placeholder="Nomor kartu bank Anda" value="{{ old('rekening') }}" required autocomplete="rekening" autofocus class="form-control @error('rekening') is-invalid @enderror">
+                      @error('rekening')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div> -->
                     <div class="form-input">
                         <input type="email" name="email" id="w3lSender" placeholder="Email Anda" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email">
@@ -194,9 +207,19 @@ Author URL: http://w3layouts.com
                     </div>
                     <div class="form-input">
                         <input type="password" name="password_confirmation" id="password-confirm" placeholder="Konfirmasi Password" class="form-control" required autocomplete="new-password">
-                    </div>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
                     <!-- <div class="form-input">
-                      <input type="text" name="w3lMother" id="w3lMother" placeholder="Nama ibu kandung Anda" required="">
+                      <input type="text" name="mother" id="w3lMother" placeholder="Nama ibu kandung Anda" value="{{ old('mother') }}" class="form-control @error('mother') is-invalid @enderror" required autocomplete="mother">
+                      @error('mother')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div> -->
                     <div class="text-right">
                         <button type="submit" class="btn btn-style btn-primary">Sign Up</button>
@@ -368,9 +391,6 @@ Author URL: http://w3layouts.com
   });
 </script>
 <!--//MENU-JS-->
-
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script><!-- //bootstrap js -->
 
 <script>
 
