@@ -120,7 +120,7 @@
                     </div>
                     <div class="form-input">
                         <input type="file" name="berkas_bukti" id="w3lBerkasBukti" required class="form-control @error('berkas_bukti') is-invalid @enderror">
-                        <label class="form-label" for="w3lBerkasBukti" aria-describedby="inputGroupFileAddon02">Unggah berkas identitas yang valid. Dapat menggunakan SIM atau KTP aktif.</label>
+                        <label class="form-label" for="w3lBerkasBukti" aria-describedby="inputGroupFileAddon02">Unggah berkas identitas yang valid. Dapat menggunakan KTP aktif.</label>
                         @error('berkas_bukti')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

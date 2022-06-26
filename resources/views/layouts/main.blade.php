@@ -65,6 +65,12 @@ Author URL: http://w3layouts.com
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          @role('admin')
+                          <a class="dropdown-item" href="\dashboard">
+                                {{ __('Dashboard') }}
+                          </a>
+                          @endrole
+
                           <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
