@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('iankristian123#')
         ]);
 
-        $admin->assignRole('nasabah');
+        $nasabah->assignRole('nasabah');
 
         $cs = User::create([
             'name' => 'Farrel Naufal',
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('farrelnaufal123#')
         ]);
 
-        $admin->assignRole('cs');
+        $cs->assignRole('cs');
 
         $teller = User::create([
             'name' => 'Galih Putri',
@@ -45,7 +45,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('galihputri123#')
         ]);
 
-        $admin->assignRole('teller');
+        $teller->assignRole('teller');
     }
 
 }

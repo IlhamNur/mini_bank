@@ -39,7 +39,9 @@ Route::group(['middleware' => ['role:nasabah']], function () {
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
-    //
+    
+    Route::get('/dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
+
 });
 
 Route::group(['middleware' => ['role:cs']], function () {

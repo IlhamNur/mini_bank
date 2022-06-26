@@ -4,8 +4,34 @@
 <!-- main-slider -->
 <section class="w3l-main-slider" id="home">
     <div class="companies20-content">
-        @foreach (@names as $name)
+        @foreach ($names as $name)
         <div class="owl-one owl-carousel owl-theme">
+        @role('nasabah')
+            <div class="item">
+                    <div class="slider-info banner-view bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 banner-info-bg">
+                                        <div class="fotoprofil ml-10">
+                                        <img src="assets/images/fotoprofil.png" alt="img" class="img-fluid radius-image-curve" />
+                                        </div> 
+                                        <h5>Farrell Naufal </h5>
+                                        <p>Rp</p>
+                                        <div class="form-input">
+                                            <input type="password" name="password" id="w3lPassword" placeholder="Password Anda" required="" />
+                                        </div>
+                                        <a class="btn btn-style btn-indigo mt-sm-5 mt-4 mr-2" href="/account">Account </a>
+                                        <img src="assets/images/hidesaldo.png" alt="img" class="img-fluid radius-image-curve" />
+                                    </div>
+                                    <!-- <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">    -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            @else
             <div class="item">
                 <li>
                     <div class="slider-info banner-view bg bg2">
@@ -101,6 +127,7 @@
                     </div>
                 </li>
             </div>
+        @endrole
         </div>
     </div>
 </section>

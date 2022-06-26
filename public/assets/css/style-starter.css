@@ -15888,4 +15888,12 @@ a.testi-img {
     }
 }
 
+div.fotoprofil{
+    width: 200px;
+    display: block;
+    
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 /*# sourceMappingURL=style-starter.css.map */

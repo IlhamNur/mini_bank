@@ -99,4 +99,9 @@ class HomeController extends Controller
             'title' => 'Sign Up'
         ]);
     }
+
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
 }
