@@ -4,6 +4,7 @@
 <!-- main-slider -->
 <section class="w3l-main-slider" id="home">
     <div class="companies20-content">
+        @foreach (@names as $name)
         <div class="owl-one owl-carousel owl-theme">
             <div class="item">
                 <li>
@@ -13,7 +14,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Pilihan tepat untuk kebutuhan perbankanmu </h5>
-                                        <p class="mt-md-4 mt-3">MINK (Mini Bank) adalah bank swasta yang didirikan pada tahun 2022.
+                                        <p class="mt-md-4 mt-3">{{ $name->value }} (Mini Bank) adalah bank swasta yang didirikan pada tahun 2022.
                                             Menyediakan segala layanan perbankan untuk memuaskan para pelanggan.
                                         </p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in </a>
@@ -37,7 +38,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Transfer kemanapun</h5>
-                                        <p class="mt-md-4 mt-3"> MINK memudahkan kalian untuk melakukan transfer kemanapun dan kapanpun.</p>
+                                        <p class="mt-md-4 mt-3"> {{ $name->value }} memudahkan kalian untuk melakukan transfer kemanapun dan kapanpun.</p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">About Us</a>
                                     </div>
@@ -81,10 +82,12 @@
                                 <div class="row">
                                     <div class="col-lg-6 banner-info-bg">
                                         <h5>Layanan Servis </h5>
-                                        <p class="mt-md-4 mt-3">Melalui Layanan MINK Call 357681, pengguna diberi 
+                                        @foreach ($telps as $telp)
+                                        <p class="mt-md-4 mt-3">Melalui Layanan {{ $telp->value }} Call {{ $telp->value }}, pengguna diberi 
                                             kemudahan mendapatkan informasi, melakukan transaksi dan memperoleh solusi 
                                             digital atas setiap permasalahan.
                                         </p>
+                                        @endforeach
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{ route('login') }}">Sign in</a>
                                         <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="/about">Read More</a>
                                     </div>
@@ -119,7 +122,7 @@
                             <h5>Nasabah<br><br></h5>
                         </div>
                     </div>
-                    <p class="mt-4">Jika Anda mencari layanan perbankan berkualitas tinggi dan dapat diandalkan. MINK adalah pilihan terbaik.</p>
+                    <p class="mt-4">Jika Anda mencari layanan perbankan berkualitas tinggi dan dapat diandalkan. {{ $name->value }} adalah pilihan terbaik.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-4">
@@ -134,7 +137,7 @@
                             <h5>Dari 3 banking platform reviews</h5>
                         </div>
                     </div>
-                    <p class="mt-4">Meski belum lama berdiri, MINK telah mendapat rating 10/10 dari 3 banking platform reviews.<br><br></p>
+                    <p class="mt-4">Meski belum lama berdiri, {{ $name->value }} telah mendapat rating 10/10 dari 3 banking platform reviews.<br><br></p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-4">
@@ -146,13 +149,14 @@
                         <div class="info">
                             <p>Upto</p>
                             <h4><a href="">8,2%</a></h4>
-                            <h5>Kenaikan total kredit MINK </h5>
+                            <h5>Kenaikan total kredit {{ $name->value }} </h5>
                         </div>
                     </div>
-                    <p class="mt-4">Secara keseluruhan, total kredit MINK naik 8,2% YoY menjadi Rp 637 triliun di Desember 2021.<br><br></p>
+                    <p class="mt-4">Secara keseluruhan, total kredit {{ $name->value }} naik 8,2% YoY menjadi Rp 637 triliun di Desember 2021.<br><br></p>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 </section>
 <!-- //home page block1 -->
@@ -465,7 +469,7 @@
                         <span class="fa fa-credit-card"></span>
                     </div>
                     <div class="content">
-                        <h4 class="title">Dapatkan kartu ATM</h4>
+                        <h4 class="title">Dapatkan akun Nasabah</h4>
                         <p class="desc"></p>
                     </div>
                 </div>

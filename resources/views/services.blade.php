@@ -47,9 +47,13 @@
     <div class="container py-lg-3">
         <div class="welcome-left text-center py-md-5 py-3">
             <h3 class="title-big">Apakah Masih Ada Pertanyaan?</h3>
-            <h3 class="mt-4">Silahkan Hubungi Kami Di : <a href="tel:+62 877 3461 4227">+62 877 3461 4227</a> </h3>
+            @foreach ($telps as $telp)
+            <h3 class="mt-4">Silahkan Hubungi Kami Di : <a href="tel:{{ $telp->value }}">{{ $telp->value }}</a> </h3>
+            @endforeach
             <p class="mt-4">Apabila Anda menghubungi nomor yang tertera, Anda akan dikenakan biaya normal.</p>
-            <a href="mailto:minibank.id@support.com" class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2">Hubungi Kami</a>
+            @foreach ($emails as $email)
+            <a href="{{ $email->value }}" class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2">Hubungi Kami</a>
+            @endforeach
         </div>
     </div>
 </div>

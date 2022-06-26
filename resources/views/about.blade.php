@@ -57,6 +57,7 @@
     </div>
   </section>
   <!-- //stats -->
+  @foreach ($names as $name)
   <!-- services section -->
   <section id="services" class="w3l-servicesblock3 py-5">
     <div class="container py-lg-5 py-md-4 py-2">
@@ -67,8 +68,8 @@
             <span class="fa fa-line-chart"></span>
             <div class="area-box">
               <h4><a href="" class="title-head">Pertumbuhan Perbankan</a></h4>
-              <p class="my-3">Secara keseluruhan, total kredit MINK naik 8,2% YoY menjadi Rp637,0 triliun di Desember
-                2021, lebih tinggi dari target pertumbuhan 6%. Pertumbuhan kredit MINK diikuti oleh perbaikan kualitas
+              <p class="my-3">Secara keseluruhan, total kredit {{ $name->value }} naik 8,2% YoY menjadi Rp637,0 triliun di Desember
+                2021, lebih tinggi dari target pertumbuhan 6%. Pertumbuhan kredit {{ $name->value }} diikuti oleh perbaikan kualitas
                 pinjaman, sejalan dengan kredit yang direstrukturisasi bisa berangsur perlahan-lahan kembali ke
                 pembayaran normal.</p>
             </div>
@@ -87,7 +88,7 @@
             <span class="fa fa-percent"></span>
             <div class="area-box">
               <h4><a href="" class="title-head">Hasil 100%</a></h4>
-              <p class="my-3">Anda yang terkena skimming kartu ATM dan uang anda hilang, jangan khawatir, MINK akan
+              <p class="my-3">Anda yang terkena skimming kartu ATM dan uang anda hilang, jangan khawatir, {{ $name->value }} akan
                 mengganti 100%.</p>
             </div>
           </div>
@@ -95,7 +96,7 @@
             <span class="fa fa-dollar"></span>
             <div class="area-box">
               <h4><a href="" class="title-head">Investasi Keuangan</a></h4>
-              <p class="my-3">Reksadana MINK adalah produk investasi reksadana dari bank MINK melalui pengelolaan
+              <p class="my-3">Reksadana {{ $name->value }} adalah produk investasi reksadana dari bank {{ $name->value }} melalui pengelolaan
                 Investasi profesional dan berpengalaman di bidangnya.</p>
             </div>
           </div>
@@ -103,6 +104,7 @@
       </div>
     </div>
   </section>
+  @endforeach
   <!-- //services section -->
   <section class="w3l-team py-5" id="team">
     <div class="container py-lg-5 py-md-4 py-2">
@@ -223,21 +225,27 @@
                               <div class="icon-box"> <span class="fa fa-map-marker"></span></div>
                               <div class="text-box">
                                   <h3 class="mb-1">Informasi Alamat</h3>
-                                  <p>Jalan Ir. Sutami 36 Kentingan, Jebres, Surakarta, Jawa Tengah. Indonesia 57126.</p>
+                                  @foreach ($alamats as $alamat)
+                                  <p>{{ $alamat->value }}</p>
+                                  @endforeach
                               </div>
                           </div>
                           <div class="single-contact-infos">
                               <div class="icon-box"> <span class="fa fa-phone"></span></div>
                               <div class="text-box">
                                   <h3 class="mb-1">Telepon</h3>
-                                  <p><a href="tel:+62 877 3461 4227">+62 877 3461 4227</a></p>
+                                  @foreach ($telps as $telp)
+                                  <p><a href="tel:{{ $telp->value }}">{{ $telp->value }}</a></p>
+                                  @endforeach
                               </div>
                           </div>
                           <div class="single-contact-infos">
                               <div class="icon-box"> <span class="fa fa-envelope"></span></div>
                               <div class="text-box">
                                   <h3 class="mb-1">Email Kami</h3>
-                                  <p> <a href="mailto:MINK@support.com">minibank.id@support.com</a></p>
+                                  @foreach ($emails as $email)
+                                  <p> <a href="mailto:{{ $email->value }}">{{ $email->value }}</a></p>
+                                  @endforeach
                               </div>
                           </div>
                       </div>

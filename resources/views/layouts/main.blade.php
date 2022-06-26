@@ -12,7 +12,9 @@ Author URL: http://w3layouts.com
     <title>{{ $title }}</title>
     
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="logo.ico">
+    @foreach ($logos as $logo)
+    <link rel="shortcut icon" href="{{ $logo->value }}">
+    @endforeach
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
@@ -24,8 +26,12 @@ Author URL: http://w3layouts.com
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
           <h1> <a class="navbar-brand" href="/">
-                  <span><img src="assets/images/logo.png" alt="Your logo" title="Your logo" style="height:35px; padding-right: 5px; padding-bottom: 8px;" /></span> 
-                  MINK
+                @foreach ($logos as $logo)
+                  <span><img src="{{ $logo->value }}" alt="Your logo" title="Your logo" style="height:35px; padding-right: 5px; padding-bottom: 8px;" /></span>
+                @endforeach
+                  @foreach ($names as $name) 
+                    {{ $name->value }}
+                  @endforeach
               </a></h1>  
               
           <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
@@ -48,7 +54,7 @@ Author URL: http://w3layouts.com
                   </li>
                   @guest
                     @if (Route::has('login'))     
-                      <li class="nav-item @@contact__active">
+                      <li class="nav-item {{ ($title === "Sign In") ? 'active' : '' }}  ">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                       </li>
                     @endif
@@ -111,7 +117,13 @@ Author URL: http://w3layouts.com
         <div class="row footer-top-29">
           <div class="col-lg-4 col-md-6 footer-list-29 footer-1 pr-lg-5">
             <div class="footer-logo mb-4">
-              <a class="navbar-brand" href="#index.php"><img src="assets/images/logo.png" alt="Your logo" title="Your logo" style="height:35px;"/> MINK</a>
+              @foreach ($logos as $logo)
+              <a class="navbar-brand" href="/"><img src="{{ $logo->value }}" alt="Your logo" title="Your logo" style="height:35px;"/>
+              @endforeach                   
+                @foreach ($names as $name) 
+                  {{ $name->value }}
+                @endforeach
+              </a>
             </div>
             <p>Kami adalah lembaga keuangan terkemuka yang menyediakan layanan perbankan berskala nasional berkualitas tinggi. Kesuksesan kami
               terwujud berkat dukungan dari pelanggan setia kami. Kami menyediakan layanan yang dapat diandalkan untuk Anda.</p>
@@ -123,18 +135,24 @@ Author URL: http://w3layouts.com
               <li><a href="about.php">About Us</a></li>
               <!-- <li><a href="#blog"> Blog posts</a></li>
               <li><a href="#pricing"> Pricing plans</a></li> -->
-              @auth
               <li><a href="services.php">Services</a></li>
-              @endauth
               <!-- <li><a href="contact.php">Contact us</a></li> -->
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-7 col-7 footer-list-29 footer-3 mt-lg-0 mt-5">
             <h6 class="footer-title-29">Kantor Pusat</h6>
-            <p class="mb-3"> Mini Bank, Jl. Ir. Sutami No. 36, Kentingan, Kec. Jebres, Kota Surakarta, Jawa Tengah - 57126.</p>
-            <p class="mb-2"> <span class="fa fa-phone"></span> <a href="tel:+62 877 3461 4227">+62 877 3461 4227</a></p>
-            <p class="mb-2"><span class="fa fa-envelope-o"></span> <a href="mailto:minibank.id@mail.com">minibank.id@gmail.com</a></p>
-            <p><span class="fa fa-support"></span> <a href="mailto:minibank.id@support.com">minibank.id@support.com</a></p>
+            @foreach ($alamats as $alamat)
+            <p class="mb-3"> {{ $alamat->value }}</p>
+            @endforeach
+            @foreach ($telps as $telp)
+            <p class="mb-2"> <span class="fa fa-phone"></span> <a href="tel:{{ $telp->value }}">{{ $telp->value }}</a></p>
+            @endforeach
+            @foreach ($emails as $email)
+            <p class="mb-2"><span class="fa fa-envelope-o"></span> <a href="mailto:{{ $email->value }}">{{ $email->value }}</a></p>
+            @endforeach
+            @foreach ($was as $wa)
+            <p><span class="fa fa-whatsapp"></span> <a href="whatsapp://send?text=Hello&phone={{ $wa->value }}">{{ $wa->value }}</a></p>
+            @endforeach
           </div>
           <div class="col-lg-3 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5">
             <h6 class="footer-title-29">Berita Terbaru</h6>
