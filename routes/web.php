@@ -45,7 +45,7 @@ Route::group(['middleware' => ['role:admin|cs|teller']], function () {
 Route::group(['middleware' => ['role:admin|cs']], function () {
     
 
-    Route::get('/regristasi-nasabah', [HomeController::class, 'regristrasiNasabah'] )->name('regristrasi.nasabah');
+    Route::get('/registrasi', [HomeController::class, 'registrasiNasabah'] )->name('registrasi.nasabah');
 
     Route::post('/nasabah-form', [NasabahController::class, 'store'])->name('nasabah.store');
 
@@ -55,15 +55,9 @@ Route::group(['middleware' => ['role:admin|teller']], function () {
 
     Route::get('/transaksi', [HomeController::class, 'transaksi'] )->name('transaksi');
 
+    Route::get('/mutasi', [HomeController::class, 'mutasi'] )->name('mutasi');
+
     Route::get('/transaksi-form', [HomeController::class, 'store'] )->name('transaksi.store');
-
-});
-
-Route::group(['middleware' => ['role:admin']], function () {
-
-    Route::get('/konfigurasi', [HomeController::class, 'konfigurasi'] )->name('konfigurasi');
-
-    Route::post('/konfigurasi-form', [KonfigurasiController::class, 'store'])->name('konfigurasi.store');
 
 });
 

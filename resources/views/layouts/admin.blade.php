@@ -18,7 +18,6 @@ Author URL: http://w3layouts.com
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
-    
   </head>
   <body>
 <!--header-->
@@ -42,82 +41,41 @@ Author URL: http://w3layouts.com
           </button>
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item {{ ($title === "Home") ? 'active' : '' }}">
-                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              <ul class="navbar-nav mx-auto col-5">
+                  <li class="nav-item {{ ($title === "Dashboard") ? 'active' : '' }}"">
+                      <a class="nav-link" href="/dashboard">Konfigurasi<span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item {{ ($title === "About Us") ? 'active' : '' }}  ">
-                      <a class="nav-link" href="/about">About</a>
+                  <li class="nav-item {{ ($title === "Registrasi") ? 'active' : '' }}"">
+                      <a class="nav-link" href="/registrasi">Registrasi</a>
                   </li>
-                  <li class="nav-item {{ ($title === "Services") ? 'active' : '' }}  ">
-                      <a class="nav-link" href="/services">Services</a>
+                  <li class="nav-item {{ ($title === "Transaksi") ? 'active' : '' }}"">
+                      <a class="nav-link" href="/transaksi">Transaksi</a>
                   </li>
-                  @guest
-                    @if (Route::has('login'))     
-                      <li class="nav-item {{ ($title === "Sign In") ? 'active' : '' }}  ">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                      </li>
-                    @endif
-                  @else
-                      <li class="nav-item @@contact__active dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          {{ Auth::user()->name }}
-                        </a>
+                  <li class="nav-item {{ ($title === "Mutasi") ? 'active' : '' }}"">
+                      <a class="nav-link" href="/mutasi">Mutasi</a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav mr-1">
+                  <li class="nav-item active">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          @role('admin|cs|teller')
-                          <a class="dropdown-item" href="\dashboard">
-                                {{ __('Dashboard') }}
-                          </a>
-                          @endrole
-
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                          </a>
-
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                          </form>
-                        </div>
-                      </li>
-                  @endguest
-                  <!--/search-right-->
-                  <div class="search mr-3">
-                      <input class="search_box" type="checkbox" id="search_box">
-                      <label class="fa fa-search" for="search_box"></label>
-                      <div class="search_form">
-                          <form action="" method="GET">
-                              <input type="text" placeholder="Search"><input type="submit" value="search">
-                          </form>
-                      </div>
-                  </div>
-                  <!--//search-right-->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+                  </li>
               </ul>
           </div>
-          <!-- toggle switch for light and dark theme -->
-          <div class="mobile-position">
-              <nav class="navigation">
-                  <div class="theme-switch-wrapper">
-                      <label class="theme-switch" for="checkbox">
-                          <input type="checkbox" id="checkbox">
-                          <div class="mode-container">
-                              <i class="gg-sun"></i>
-                              <i class="gg-moon"></i>
-                          </div>
-                      </label>
-                  </div>
-              </nav>
-          </div>
-          <!-- //toggle switch for light and dark theme -->
       </nav>
   </div>
 </header>
 <!--/header-->
 @yield('content')
  <!-- footer -->
-<section class="w3l-footer-29-main">
+ <section class="w3l-footer-29-main">
     <div class="footer-29 py-5">
       <div class="container py-lg-4">
         <div class="row footer-top-29">
@@ -142,7 +100,7 @@ Author URL: http://w3layouts.com
               <!-- <li><a href="#blog"> Blog posts</a></li>
               <li><a href="#pricing"> Pricing plans</a></li> -->
               <li><a href="/services">Services</a></li>
-              <!-- <li><a href="contact.php">Contact us</a></li> -->
+              <!-- <li><a href="/contact">Contact us</a></li> -->
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-7 col-7 footer-list-29 footer-3 mt-lg-0 mt-5">

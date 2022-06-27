@@ -7,6 +7,7 @@ use App\Models\Konfigurasi;
 use App\Models\Rekening;
 use App\Models\Nasabah;
 use App\Models\Transaksi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -105,36 +106,63 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard.index', [
+        $names = Konfigurasi::where('id', 1)->get();
+        $alamats = Konfigurasi::where('id', 2)->get();
+        $telps = Konfigurasi::where('id', 3)->get();
+        $was = Konfigurasi::where('id', 4)->get();
+        $logos = Konfigurasi::where('id', 5)->get();
+        $emails = Konfigurasi::where('id', 6)->get();
+        return view('dashboard.index', compact('names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
             'title' => 'Dashboard'
         ]);
     }
 
-    public function konfigurasi()
-    {   
-        $konfigurasis = Konfigurasi::get();
-        return view('dashboard.konfigurasi', compact('konfigurasis'), [
-            'title' => 'Konfigurasi'
-        ]);
-    }
-
-    public function regristasiNasabah()
+    public function registrasiNasabah()
     {
+        $names = Konfigurasi::where('id', 1)->get();
+        $alamats = Konfigurasi::where('id', 2)->get();
+        $telps = Konfigurasi::where('id', 3)->get();
+        $was = Konfigurasi::where('id', 4)->get();
+        $logos = Konfigurasi::where('id', 5)->get();
+        $emails = Konfigurasi::where('id', 6)->get();
         $sign_ups = SignUp::get();
         $nasabahs = Nasabah::get();
         $rekenings = Rekening::get();
         $users = User::get();
-        return view('dashboard.regristasiNasabah', compact('sign_ups', 'nasabahs', 'rekenings', 'users'), [
-            'title' => 'Regristrasi Nasabah'
+        return view('dashboard.registrasi', compact('sign_ups', 'nasabahs', 'rekenings', 'users', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
+            'title' => 'Registrasi'
         ]);
     }
 
     public function transaksi()
     {
-        $transakis = Transaksi::get();
+        $names = Konfigurasi::where('id', 1)->get();
+        $alamats = Konfigurasi::where('id', 2)->get();
+        $telps = Konfigurasi::where('id', 3)->get();
+        $was = Konfigurasi::where('id', 4)->get();
+        $logos = Konfigurasi::where('id', 5)->get();
+        $emails = Konfigurasi::where('id', 6)->get();
+        $transaksis = Transaksi::get();
         $rekenings = Rekening::get();
-        return view('dashboard.transaksi', compact('transaksis', 'rekenings'), [
+        return view('dashboard.transaksi', compact('transaksis', 'rekenings', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
             'title' => 'Transaksi'
+        ]);
+    }
+
+    public function mutasi()
+    {
+        $names = Konfigurasi::where('id', 1)->get();
+        $alamats = Konfigurasi::where('id', 2)->get();
+        $telps = Konfigurasi::where('id', 3)->get();
+        $was = Konfigurasi::where('id', 4)->get();
+        $logos = Konfigurasi::where('id', 5)->get();
+        $emails = Konfigurasi::where('id', 6)->get();
+        $sign_ups = SignUp::get();
+        $nasabahs = Nasabah::get();
+        $rekenings = Rekening::get();
+        $users = User::get();
+        return view('dashboard.mutasi', compact('sign_ups', 'nasabahs', 'rekenings', 'users', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
+            'title' => 'Mutasi Transaksi'
         ]);
     }
 }
