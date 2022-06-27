@@ -36,25 +36,14 @@ Route::post('/signup-form', [SignUpController::class, 'store'])->name('signup.st
     
 Auth::routes();
 
-Route::group(['middleware' => ['role:admin']], function () {
+Route::group(['middleware' => ['role:admin|cs|teller']], function () {
     
     Route::get('/dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
-
-    Route::get('/konfigurasi', [HomeController::class, 'konfigurasi'] )->name('konfigurasi');
-
-    Route::get('/transaksi', [HomeController::class, 'transaksi'] )->name('transaksi');
-
-    Route::get('/regristasi-nasabah', [HomeController::class, 'regristrasiNasabah'] )->name('regristrasi.nasabah');
-
-    Route::post('/nasabah-form', [NasabahController::class, 'store'])->name('nasabah.store');
-
-    Route::post('/konfigurasi-form', [KonfigurasiController::class, 'store'])->name('konfigurasi.store');
 
 });
 
-Route::group(['middleware' => ['role:cs']], function () {
+Route::group(['middleware' => ['role:admin|cs']], function () {
     
-    Route::get('/dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
 
     Route::get('/regristasi-nasabah', [HomeController::class, 'regristrasiNasabah'] )->name('regristrasi.nasabah');
 
@@ -62,10 +51,19 @@ Route::group(['middleware' => ['role:cs']], function () {
 
 });
 
-Route::group(['middleware' => ['role:teller']], function () {
+Route::group(['middleware' => ['role:admin|teller']], function () {
 
     Route::get('/transaksi', [HomeController::class, 'transaksi'] )->name('transaksi');
 
     Route::get('/transaksi-form', [HomeController::class, 'store'] )->name('transaksi.store');
 
 });
+
+Route::group(['middleware' => ['role:admin']], function () {
+
+    Route::get('/konfigurasi', [HomeController::class, 'konfigurasi'] )->name('konfigurasi');
+
+    Route::post('/konfigurasi-form', [KonfigurasiController::class, 'store'])->name('konfigurasi.store');
+
+});
+

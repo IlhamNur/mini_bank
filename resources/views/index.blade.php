@@ -540,7 +540,7 @@
         </div>
     </div>
 </section> -->
-@endrole
+
 <!-- // about section -->
  <!-- forms -->
  <section class="w3l-forms-9 py-5">
@@ -607,6 +607,7 @@
         </div>
     </div>
 </div>
+@endrole
 <!--  News section -->
 <!-- <div class="w3l-news" id="news">
     <section id="grids5-block" class="py-5">

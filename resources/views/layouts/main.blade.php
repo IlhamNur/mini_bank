@@ -65,7 +65,7 @@ Author URL: http://w3layouts.com
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          @role('admin')
+                          @role('admin|cs|teller')
                           <a class="dropdown-item" href="\dashboard">
                                 {{ __('Dashboard') }}
                           </a>
