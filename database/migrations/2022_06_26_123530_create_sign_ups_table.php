@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('nik');
             $table->string('jenis_kelamin');
+            $table->string('berkas_bukti');
             $table->rememberToken();
             $table->timestamps();
         });

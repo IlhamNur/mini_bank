@@ -17,8 +17,8 @@ class SignUpController extends Controller
             'address' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'hp' => 'required|numeric',
-            'mother' => 'required|string|max:255',
+            'nik' => 'required|numeric|min:16|max:16',
+            'jenis_kelamin' => 'required',
             'berkas_bukti' => 'required|file|image',
         ]);
 
@@ -29,8 +29,8 @@ class SignUpController extends Controller
         $sign_ups->address = $request->address;
         $sign_ups->password = $request->password;
         $sign_ups->email = $request->email;
-        $sign_ups->hp = $request->hp;
-        $sign_ups->mother = $request->mother;
+        $sign_ups->nik = $request->nik;
+        $sign_ups->jenis_kelamin = $request->jenis_kelamin;
         $sign_ups->berkas_bukti = $path;
         $sign_ups->save();
 

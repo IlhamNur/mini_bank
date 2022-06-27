@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\SignUp;
 use App\Models\Konfigurasi;
+use App\Models\Rekening;
+use App\Models\Nasabah;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -104,6 +107,34 @@ class HomeController extends Controller
     {
         return view('dashboard.index', [
             'title' => 'Dashboard'
+        ]);
+    }
+
+    public function konfigurasi()
+    {   
+        $konfigurasis = Konfigurasi::get();
+        return view('dashboard.konfigurasi', compact('konfigurasis'), [
+            'title' => 'Konfigurasi'
+        ]);
+    }
+
+    public function regristasiNasabah()
+    {
+        $sign_ups = SignUp::get();
+        $nasabahs = Nasabah::get();
+        $rekenings = Rekening::get();
+        $users = User::get();
+        return view('dashboard.regristasiNasabah', compact('sign_ups', 'nasabahs', 'rekenings', 'users'), [
+            'title' => 'Regristrasi Nasabah'
+        ]);
+    }
+
+    public function transaksi()
+    {
+        $transakis = Transaksi::get();
+        $rekenings = Rekening::get();
+        return view('dashboard.transaksi', compact('transaksis', 'rekenings'), [
+            'title' => 'Transaksi'
         ]);
     }
 }

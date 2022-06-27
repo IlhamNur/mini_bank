@@ -79,8 +79,8 @@
                       @enderror
                     </div>
                     <div class="form-input">
-                      <input type="tel" name="hp" id="w3lHP" placeholder="Nomor handphone Anda" value="{{ old('hp') }}" required autocomplete="hp" autofocus class="form-control @error('hp') is-invalid @enderror">
-                      @error('hp')
+                      <input type="tel" name="nik" id="w3lHP" placeholder="NIK Anda" value="{{ old('hp') }}" required autocomplete="nik" autofocus class="form-control @error('nik') is-invalid @enderror">
+                      @error('nik')
                           <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -111,8 +111,8 @@
                         @enderror
                       </div>
                     <div class="form-input">
-                      <input type="text" name="mother" id="w3lMother" placeholder="Nama ibu kandung Anda" value="{{ old('mother') }}" class="form-control @error('mother') is-invalid @enderror" required autocomplete="mother">
-                        @error('mother')
+                      <input type="text" name="jenis_kelamin" id="w3lMother" placeholder="Jenis kelamin Anda" value="{{ old('jenis_kelamin') }}" class="form-control @error('jenis_kelamin') is-invalid @enderror" required autocomplete="jenis_kelamin">
+                        @error('jenis_kelamin')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

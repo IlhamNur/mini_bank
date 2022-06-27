@@ -23,7 +23,7 @@ Author URL: http://w3layouts.com
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --primary1: #ff7116;
+    --primary: #ff7116;
     --secondary: #f8b195;
     --success: #28a745;
     --info: #17a2b8;
@@ -6436,7 +6436,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-    background-color: #f8b195 !important;
+    background-color: #f49050 !important;
 }
 
 a.bg-secondary:hover,
@@ -15887,13 +15887,5 @@ a.testi-img {
         font-size: 18px;
     }
 }
-
-div.fotoprofil{
-    width: 200px;
-    display: block;
-    
-    margin-left: auto;
-    margin-right: auto;
-  }
 
 /*# sourceMappingURL=style-starter.css.map */
