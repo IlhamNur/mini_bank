@@ -6,6 +6,7 @@ use App\Models\SignUp;
 use App\Models\Konfigurasi;
 use App\Models\Rekening;
 use App\Models\Nasabah;
+use App\Models\Saldo;
 use Illuminate\Http\Request;
 
 class NasabahController extends Controller
@@ -27,11 +28,13 @@ class NasabahController extends Controller
             'alamat' => 'required|string',
             'nik' => 'required|numeric|min:15',
             'jenis_kelamin' => 'required',
-            'nomor_rekening' => 'required|min:12'
+            'nomor_rekening' => 'required|min:12',
+            'saldo' => 'required|string|min:5'
         ]);
 
         $nasabah = new Nasabah;
         $rekening = new Rekening;
+        $saldo = new Saldo;
         $nasabah->nama = $request->nama;
         $nasabah->alamat = $request->alamat;
         $nasabah->nik = $request->nik;
@@ -41,6 +44,11 @@ class NasabahController extends Controller
         $rekening->nomor_rekening = $request->nomor_rekening;
         $rekening->id_nasabah = $nasabah->id;
         $rekening->save();
+
+        $saldo->saldo = $request->saldo;
+        $saldo->id_rekening = $rekening->id;
+        $saldo->save();
+
 
         return redirect()->route('dashboard.registrasi')
         ->with('success','Data nasabah telah ditambahkan.');

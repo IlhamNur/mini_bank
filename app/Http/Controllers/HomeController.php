@@ -7,6 +7,7 @@ use App\Models\Konfigurasi;
 use App\Models\Rekening;
 use App\Models\Nasabah;
 use App\Models\Transaksi;
+use App\Models\Saldo;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -129,8 +130,9 @@ class HomeController extends Controller
         $sign_ups = SignUp::get();
         $nasabahs = Nasabah::get();
         $rekenings = Rekening::get();
+        $saldos = Saldo::get();
         $users = User::get();
-        return view('dashboard.registrasi', compact('sign_ups', 'nasabahs', 'rekenings', 'users', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
+        return view('dashboard.registrasi', compact('saldos', 'sign_ups', 'nasabahs', 'rekenings', 'users', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
             'title' => 'Registrasi'
         ]);
     }
@@ -145,7 +147,9 @@ class HomeController extends Controller
         $emails = Konfigurasi::where('id', 6)->get();
         $transaksis = Transaksi::get();
         $rekenings = Rekening::get();
-        return view('dashboard.transaksi', compact('transaksis', 'rekenings', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
+        $nasabahs = Nasabah::get();
+        $saldos = Saldo::get();
+        return view('dashboard.transaksi', compact('saldos', 'transaksis', 'rekenings', 'nasabahs', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
             'title' => 'Transaksi'
         ]);
     }

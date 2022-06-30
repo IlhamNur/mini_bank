@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\NasabahController;
+use App\Http\Controllers\TransaksiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,11 +55,13 @@ Route::group(['middleware' => ['role:admin|cs']], function () {
 
 Route::group(['middleware' => ['role:admin|teller']], function () {
 
-    Route::get('/transaksi', [HomeController::class, 'transaksi'] )->name('transaksi');
+    Route::get('/transaksi', [HomeController::class, 'transaksi'] )->name('dashboard.transaksi');
 
     Route::get('/mutasi', [HomeController::class, 'mutasi'] )->name('mutasi');
 
-    Route::get('/transaksi-form', [HomeController::class, 'store'] )->name('transaksi.store');
+    Route::post('/transaksi-debet/{debet}', [TransaksiController::class, 'debet'] )->name('transaksi.debet');
+
+    Route::post('/transaksi-kredit/{kredit}', [TransaksiController::class, 'kredit'] )->name('transaksi.kredit');
 
 });
 

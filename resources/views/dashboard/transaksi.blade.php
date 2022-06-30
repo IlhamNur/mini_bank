@@ -6,7 +6,7 @@
     <div class="container"> 
         <ul class="breadcrumbs-custom-path">
         <li><a href="/index">Admin Dashboard</a></li> 
-        <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>transaksi</li> 
+        <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>Transaksi</li> 
         </ul>
     </div> 
     </section>
@@ -15,75 +15,112 @@
                     <div class="slider-info banner-view bg bg2">
                         <div class="banner-info">
                             <div class="container">
+                            @if ($message = Session::get('success'))
+                                <br>
+                                <div class="alert alert-success">
+                                    {{ $message }}
+                                </div>
+                                <br>
+                            @endif
                                 <div class="row">
                                 <div class="col-12 text-center mt-5">
-                                <h3>Transaksi</h3>
+                                <h3>Data Nasabah</h3>
                                 </div>
                                 <div class="col-10 offset-1">
                                 <table class="table table-bordered my-5">
                                     <thead>
                                     <tr class="text-center">
                                         <th scope="col" class="col-1">No</th>
-                                        <th scope="col">Tanggal Transaksi</th>
-                                        <th scope="col">Jenis Transaksi</th>
-                                        <th scope="col">Nominal</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Alamat</th>
+                                        <th scope="col">NIK</th>
+                                        <th scope="col">Jenis Kelamin</th>
+                                        <th scope="col">Nomor Rekening</th>
                                         <th scope="col" class="col-3 ">Aksi</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($nasabahs as $nasabah)
                                         <tr class="text-center">
-                                        <th scope="row">1</th>
-                                        <td></td>
-                                        <td></td>
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $nasabah->nama }}</td>
+                                        <td>{{ $nasabah->alamat }}</td>
+                                        <td>{{ $nasabah->nik }}</td>
+                                        <td>{{ $nasabah->jenis_kelamin }}</td>
                                         <td>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol4" class="btn btn-primary">Tombol4</button>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol5" class="btn btn-info">Tombol5</button>
+                                            @foreach($rekenings as $rekening) 
+                                                {{ $rekening->nomor_rekening }}
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#kredit{{ $nasabah->id }}" class="btn btn-primary">Debet</button>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#debet{{ $nasabah->id }}" class="btn btn-info">Kredit</button>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#tombol6" class="btn btn-danger mt-1">Tombol5</button>
                                         </td>
                                         </tr>
-                                        <tr class="text-center">
-                                        <th scope="row">2</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol4" class="btn btn-primary">Tombol4</button>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol5" class="btn btn-info">Tombol5</button>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol6" class="btn btn-danger mt-1">Tombol5</button>
-                                        </td>
-                                        </tr>
-                                        <tr class="text-center">
-                                        <th scope="row">3</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol4" class="btn btn-primary">Tombol4</button>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol5" class="btn btn-info">Tombol5</button>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol6" class="btn btn-danger mt-1">Tombol5</button>
-                                        </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                     </table>
                                     </div>
                                     </div> 
 
-                                    <div class="modal fade" id="tombol4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    @foreach($nasabahs as $nasabah)
+                                    <div class="modal fade" id="debet{{ $nasabah->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
+                                        <form method="POST" enctype="multipart/form-data" action="/transaksi-debet/{{ $nasabah->id }}">
+                                            @csrf
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-center" id="exampleModalLabel">Title</h5>
+                                            <h5 class="modal-title text-center" id="exampleModalLabel">Transaksi</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <p>text</p>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control {{$errors->has('nominal') ? 'is-invalid' : ''}}" id="nominal" name="nominal" placeholder="Nominal">
+                                                @if($errors->has('nominal'))
+                                                    <div class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('nominal') }}</strong>
+                                                    </div>
+                                                @endif
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
                                         </div>
                                     </div>
                                     </div>
+                                    @endforeach
 
-                                    <div class="modal fade" id="tombol5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    @foreach($nasabahs as $nasabah)
+                                    <div class="modal fade" id="kredit{{ $nasabah->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                        <form method="POST" enctype="multipart/form-data" action="/transaksi-kredit/{{ $nasabah->id }}">
+                                            @csrf
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-center" id="exampleModalLabel">Transaksi</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control {{$errors->has('nominal') ? 'is-invalid' : ''}}" id="nominal" name="nominal" placeholder="Nominal">
+                                                @if($errors->has('nominal'))
+                                                    <div class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('nominal') }}</strong>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    @endforeach
+
+                                    <!-- <div class="modal fade" id="tombol5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                         <div class="modal-header">
@@ -115,7 +152,7 @@
                                         </div>
                                         </div>
                                     </div>
-                                    </div>
+                                    </div> -->
                             </div>
                         </div>
                     </div>

@@ -113,6 +113,14 @@
                                                     </div>
                                                 @endif
                                             </div>
+                                            <div class="form-group">
+                                                <input type="number" class="form-control {{$errors->has('saldo') ? 'is-invalid' : ''}}" id="saldo" name="saldo" placeholder="Saldo awal minimal 50000">
+                                                @if($errors->has('saldo'))
+                                                    <div class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('saldo') }}</strong>
+                                                    </div>
+                                                @endif
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary">Simpan</button>

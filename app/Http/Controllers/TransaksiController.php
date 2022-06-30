@@ -3,45 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
+use App\Models\Nasabah;
 use App\Models\Rekening;
+use App\Models\Saldo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
-{
-    public function create()
-    {
-        $transaksis = Transaksi::get();
-        $rekenings = Rekening::get();
-        $users = User::get();
-        return view('dashboard.transaksi', compact('transaksis', 'rekenings'));
-    }
-
-    public function store(Request $request)
+{   
+    public function debet(Request $request, $id)
     {
         $request->validate([
-            'tgl_transaksi' => 'required|stringdate_format:Y-m-d',
-            'jenis_transaksi' => 'required',
-            'nominal' => 'required|numeric|min:16|max:16',
-            'jenis_kelamin' => 'required',
-            'nomor_rekening' => 'required|numeric|min:10|max:10'
+            'nominal' => 'required|numeric|min:50000',
         ]);
 
-        $nasabah = new Nasabah;
-        $nasabah->name = $request->name;
-        $nasabah->address = $request->address;
-        $nasabah->nik = $request->nik;
-        $nasabah->jenis_kelamin = $request->jenis_kelamin;
-        $nasabah->save();
+        $rekening = Rekening::where('id_nasabah', $id)->first();
+        $saldo = Saldo::where('id_rekening', $rekening->id)->first();
+        $transaksi = new Transaksi;
+        $transaksi->tgl_transaksi = Carbon::now()->format('Y-m-d H:i:s');
+        $transaksi->jenis_transaksi = 'debet';
+        $transaksi->nominal = $request->nominal;
+        $transaksi->id_rekening = $rekening->id;
+        $transaksi->save();
+        $saldo->saldo += $request->nominal;
+        $saldo->save();
 
-        if ($request->has('nomor_rekening')) {
-            foreach ($request['nomor_rekening'] as $nomorRekening) {
-                Rekening::create([
-                    'id_nasabah' => $nasabah->id
-                ]);
-            }
-        }
+        return redirect()->route('dashboard.transaksi')
+        ->with('success','Transaksi debet telah ditambahkan.');
+    }
 
-        return redirect()->route('dashboard.regristasiNasabah')
-        ->with('success','Data nasabah telah ditambahkan.');
+    public function kredit(Request $request, $id)
+    {
+        $request->validate([
+            'nominal' => 'required|numeric|min:50000',
+        ]);
+
+        $rekening = Rekening::where('id_nasabah', $id)->get();
+        $saldo = Saldo::find($id);
+        $transaksi = new Transaksi;
+        $transaksi->tgl_transaksi = Carbon::now()->format('Y-m-d H:i:s');
+        $transaksi->jenis_transaksi->insert(['kredit']);
+        $transaksi->nominal = $request->nominal;
+        $transaksi->id_rekening = $rekening->id;
+        $transaksi->save();
+        $saldo->saldo -= $request->nominal;
+        $saldo->save();
+
+        return redirect()->route('dashboard.transaksi')
+        ->with('success','Transaksi kredit telah ditambahkan.');
     }
 }
