@@ -7,6 +7,8 @@ use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\MutasiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,7 +59,7 @@ Route::group(['middleware' => ['role:admin|teller']], function () {
 
     Route::get('/transaksi', [HomeController::class, 'transaksi'] )->name('dashboard.transaksi');
 
-    Route::get('/mutasi', [HomeController::class, 'mutasi'] )->name('mutasi');
+    Route::get('/mutasi/{id}', [HomeController::class, 'mutasi'] )->name('dashboard.mutasi');
 
     Route::post('/transaksi-debet/{debet}', [TransaksiController::class, 'debet'] )->name('transaksi.debet');
 

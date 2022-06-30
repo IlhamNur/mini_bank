@@ -27,9 +27,9 @@
                                                     <i class="fa fa-eye-slash white" aria-hidden="true" style="color: white"></i>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <!-- </div>
                                         <a class="btn btn-style btn-primary mt-2 mb-4 mx-auto" href="/gantipin">ganti pin</a>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="col-lg-5 offset-1 bg-secondary rounded">

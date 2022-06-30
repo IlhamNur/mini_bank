@@ -55,7 +55,7 @@
                                         <td>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#kredit{{ $nasabah->id }}" class="btn btn-primary">Debet</button>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#debet{{ $nasabah->id }}" class="btn btn-info">Kredit</button>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#tombol6" class="btn btn-danger mt-1">Tombol5</button>
+                                            <a  href="{{ url('/mutasi/'.$nasabah->id) }}" ><button type="button" class="btn btn-danger mt-1">Mutasi</button></a>
                                         </td>
                                         </tr>
                                         @endforeach

@@ -154,7 +154,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function mutasi()
+    public function mutasi($id)
     {
         $names = Konfigurasi::where('id', 1)->get();
         $alamats = Konfigurasi::where('id', 2)->get();
@@ -163,10 +163,11 @@ class HomeController extends Controller
         $logos = Konfigurasi::where('id', 5)->get();
         $emails = Konfigurasi::where('id', 6)->get();
         $sign_ups = SignUp::get();
-        $nasabahs = Nasabah::get();
-        $rekenings = Rekening::get();
+        $rekenings = Rekening::where('id_nasabah', $id)->first();
+        $transaksis = Transaksi::where('id_rekening', $rekenings->id)->get();
+        $nasabah = Nasabah::find($id)->first();
         $users = User::get();
-        return view('dashboard.mutasi', compact('sign_ups', 'nasabahs', 'rekenings', 'users', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
+        return view('dashboard.mutasi', compact('transaksis', 'sign_ups', 'nasabah', 'rekenings', 'users', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
             'title' => 'Mutasi Transaksi'
         ]);
     }
