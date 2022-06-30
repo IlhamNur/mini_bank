@@ -106,13 +106,14 @@ class HomeController extends Controller
 
     public function dashboard()
     {
+        $konfigurasis = Konfigurasi::get();
         $names = Konfigurasi::where('id', 1)->get();
         $alamats = Konfigurasi::where('id', 2)->get();
         $telps = Konfigurasi::where('id', 3)->get();
         $was = Konfigurasi::where('id', 4)->get();
         $logos = Konfigurasi::where('id', 5)->get();
         $emails = Konfigurasi::where('id', 6)->get();
-        return view('dashboard.index', compact('names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
+        return view('dashboard.index', compact('names', 'alamats', 'telps', 'was', 'logos', 'emails', 'konfigurasis'), [
             'title' => 'Dashboard'
         ]);
     }

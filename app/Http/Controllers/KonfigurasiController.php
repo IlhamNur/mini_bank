@@ -25,13 +25,14 @@ class KonfigurasiController extends Controller
 
     public function update(Request $request, Konfigurasi $konfigurasi)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'value' => 'required',
         ]);
 
-        Konfigurasi::where('id', $konfigurasi->id)->update($validatedData);
+        $konfigurasi->value = $request['value'];
+        $konfigurasi->save();
 
-        return redirect()->route('dashboard.index')
-        ->with('success','Data value telah diubah.');
+        return redirect()->route('dashboard')
+        ->with('success','Data tamu telah diubah.');
     }
 }

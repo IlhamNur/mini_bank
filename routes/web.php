@@ -38,14 +38,15 @@ Auth::routes();
 
 Route::group(['middleware' => ['role:admin|cs|teller']], function () {
     
+    Route::post('/konfigurasi-form/{konfigurasi}', [KonfigurasiController::class, 'update'] )->name('konfigurasi.update');
+    
     Route::get('/dashboard', [HomeController::class, 'dashboard'] )->name('dashboard');
 
 });
 
 Route::group(['middleware' => ['role:admin|cs']], function () {
     
-
-    Route::get('/registrasi', [HomeController::class, 'registrasiNasabah'] )->name('registrasi.nasabah');
+    Route::get('/registrasi', [HomeController::class, 'registrasiNasabah'] )->name('dashboard.registrasi');
 
     Route::post('/nasabah-form', [NasabahController::class, 'store'])->name('nasabah.store');
 

@@ -8,7 +8,7 @@ use App\Models\Rekening;
 use App\Models\Nasabah;
 use Illuminate\Http\Request;
 
-class RegristasiNasabahController extends Controller
+class NasabahController extends Controller
 {
 
     public function create()
@@ -23,29 +23,26 @@ class RegristasiNasabahController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string',
-            'nik' => 'required|numeric|min:16|max:16',
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'nik' => 'required|numeric|min:15',
             'jenis_kelamin' => 'required',
-            'nomor_rekening' => 'required|numeric|min:10|max:10'
+            'nomor_rekening' => 'required|min:12'
         ]);
 
         $nasabah = new Nasabah;
-        $nasabah->name = $request->name;
-        $nasabah->address = $request->address;
+        $rekening = new Rekening;
+        $nasabah->nama = $request->nama;
+        $nasabah->alamat = $request->alamat;
         $nasabah->nik = $request->nik;
         $nasabah->jenis_kelamin = $request->jenis_kelamin;
         $nasabah->save();
 
-        if ($request->has('nomor_rekening')) {
-            foreach ($request['nomor_rekening'] as $nomorRekening) {
-                Rekening::create([
-                    'id_nasabah' => $nasabah->id
-                ]);
-            }
-        }
+        $rekening->nomor_rekening = $request->nomor_rekening;
+        $rekening->id_nasabah = $nasabah->id;
+        $rekening->save();
 
-        return redirect()->route('dashboard.regristasiNasabah')
+        return redirect()->route('dashboard.registrasi')
         ->with('success','Data nasabah telah ditambahkan.');
     }
 }

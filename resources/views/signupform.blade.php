@@ -1,13 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@if ($message = Session::get('success'))
-    <br>
-    <div class="alert alert-success">
-        {{ $message }}
-    </div>
-    <br>
-@endif
 <div class="inner-banner">
 </div>
 <section class="w3l-breadcrumb">
@@ -20,6 +13,13 @@
 </section>
 <div class="w3l-contact-info py-5" id="contact">
     <div class="container py-lg-5 py-md-4">
+        @if ($message = Session::get('success'))
+            <br>
+            <div class="alert alert-success">
+                {{ $message }}
+            </div>
+            <br>
+        @endif
         <div class="title text-center">
             <h3 class="title-big">Sign Up</h3>
             <p class="mt-2 mx-lg-5">Buatlah akun untuk mendapatkan pengalaman yang terbaik.</p>

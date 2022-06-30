@@ -10,4 +10,11 @@ class Nasabah extends Model
 {
     use HasFactory;
     use Userstamps;
+    
+    protected $fillable = [
+        'nama',
+        'alamat',
+        'nik',
+        'jenis_kelamin',
+    ];
 }

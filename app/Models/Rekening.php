@@ -10,4 +10,10 @@ class Rekening extends Model
 {
     use HasFactory;
     use Userstamps;
+
+    protected $fillable = ['id_nasabah', 'nomor_rekening'];
+
+    public function rekening(){
+        return $this->hasOne(Rekening::class, 'id', 'id_nasabah');
+    }
 }

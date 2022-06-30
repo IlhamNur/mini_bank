@@ -24,9 +24,10 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th scope="col" class="col-1">No</th>
-                                        <th scope="col"> </th>
-                                        <th scope="col"></th>
-                                        <th scope="col" class="col-3 "></th>
+                                        <th scope="col">Tanggal Transaksi</th>
+                                        <th scope="col">Jenis Transaksi</th>
+                                        <th scope="col">Nominal</th>
+                                        <th scope="col" class="col-3 ">Aksi</th>
                                     </tr>
                                     </thead>
                                     <tbody>

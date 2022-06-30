@@ -44,49 +44,53 @@
                               <thead>
                                 <tr class="text-center">
                                   <th scope="col" class="col-1">No</th>
-                                  <th scope="col">First</th>
-                                  <th scope="col" class="col-2 ">Last</th>
+                                  <th scope="col">Code</th>
+                                  <th scope="col">Value</th>
+                                  <th scope="col" class="col-2 ">Aksi</th>
                                 </tr>
                               </thead>
                               <tbody>
+                              @foreach ($konfigurasis as $konfigurasi) 
                                 <tr class="text-center">
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td><button type="button" data-bs-toggle="modal" data-bs-target="#tombol1" class="btn btn-primary">Tombol1</button></td>
+                                  <th scope="row">{{ $loop->iteration }}</th>
+                                  <td>{{ $konfigurasi->code }}</td>
+                                  <td>{{ $konfigurasi->value }}</td>
+                                  <td><button type="button" data-bs-toggle="modal" data-bs-target="#tombol{{$loop->iteration}}" class="btn btn-primary">Ubah</button></td>
                                 </tr>
-                                <tr class="text-center">
-                                  <th scope="row">2</th>
-                                  <td>Mark</td>
-                                  <td><button type="button" data-bs-toggle="modal" data-bs-target="#tombol1" class="btn btn-primary">Tombol1</button></td>
-                                </tr>
-                                <tr class="text-center">
-                                  <th scope="row">3</th>
-                                  <td>Mark</td>
-                                  <td><button type="button" data-bs-toggle="modal" data-bs-target="#tombol1" class="btn btn-primary">Tombol1</button></td>
-                                </tr>
+                              @endforeach
                               </tbody>
                             </table>
                             </div>
                             </div> 
                         </div>
 
-                        <div class="modal fade" id="tombol1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        @foreach ($konfigurasis as $konfigurasi)
+                        <div class="modal fade" id="tombol{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
+                              <form method="POST" enctype="multipart/form-data" action="{{url('/konfigurasi-form/'.$konfigurasi->id)}}">
+                              @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title text-center" id="exampleModalLabel">Title</h5>
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Konfigurasi</h5>
                             </div>
                             <div class="modal-body">
-                                <p>text</p>
+
+                              <input type="text" class="form-control {{$errors->has('value') ? 'is-invalid' : ''}}" id="value" name="value">
+                              @if($errors->has('value'))
+                                  <div class="invalid-feedback" role="alert">
+                                      <strong>{{ $errors->first('value') }}</strong>
+                                  </div>
+                              @endif
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                             </div>
+                            </form>
                             </div>
                         </div>
                         </div>
-
+                      @endforeach
                         </div>
                     </div>
                 </li>

@@ -17,7 +17,7 @@ class SignUpController extends Controller
             'address' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'nik' => 'required|numeric|min:16|max:16',
+            'nik' => 'required|numeric|min:15',
             'jenis_kelamin' => 'required',
             'berkas_bukti' => 'required|file|image',
         ]);
