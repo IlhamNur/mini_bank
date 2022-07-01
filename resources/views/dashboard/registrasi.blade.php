@@ -26,7 +26,7 @@
                                 <div class="col-12 text-center mt-5">
                                 <h3>Registrasi</h3>
                                 </div>
-                                <div class="col-6 offset-1">
+                                <div class="col-10 offset-1">
                                 <table class="table table-bordered my-5">
                                     <thead>
                                     <tr class="text-center">
@@ -37,8 +37,8 @@
                                         <th scope="col">Alamat</th>
                                         <th scope="col">NIK</th>
                                         <th scope="col">Jenis Kelamin</th>
-                                        <th scope="col" class="col-4 ">Berkas Bukti</th>
-                                        <th scope="col" class="col-3 "></th>
+                                        <th scope="col">Berkas Bukti</th>
+                                        <th scope="col"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -54,7 +54,7 @@
                                         <td><img src="{{Storage::url($sign_up->berkas_bukti)}}" alt="foto" style="width: 200px; height:auto;"></td>
                                         <td>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#nasabah{{$sign_up->id}}" class="btn btn-info">Daftar Nasabah</button>
-                                            <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#akun{{$sign_up->id}}" class="btn btn-danger">Daftar Akun</button> -->
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#akun{{$sign_up->id}}" class="btn btn-danger">Daftar Akun</button>
                                         </td>
                                         </tr>
                                     @endforeach
@@ -132,7 +132,7 @@
                                     </div>
                                     @endforeach
 
-                                    <!-- @foreach ($sign_ups as $sign_up)
+                                    @foreach ($sign_ups as $sign_up)
                                     <div class="modal fade" id="akun{{$sign_up->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
@@ -142,30 +142,55 @@
                                             <h5 class="modal-title text-center" id="exampleModalLabel">Daftar Akun</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group">
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $sign_up->name}}">
-                                                @if($errors->has('name'))
-                                                    <div class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('name') }}</strong>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}" id="email" name="email" value="{{ $sign_up->email}}">
-                                                @if($errors->has('email'))
-                                                    <div class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}" id="password" name="password" value="{{ $sign_up->password}}">
-                                                @if($errors->has('password'))
-                                                    <div class="invalid-feedback" role="alert">
-                                                        <strong>{{ $errors->first('password') }}</strong>
-                                                    </div>
-                                                @endif
-                                            </div>
+                                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $sign_up->name }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $sign_up->email }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" value="{{ $sign_up->password }}" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" value="{{ $sign_up->password }}" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -175,7 +200,7 @@
                                         </div>
                                     </div>
                                     </div>
-                                    @endforeach -->
+                                    @endforeach
                             </div>
                         </div>
                     </div>

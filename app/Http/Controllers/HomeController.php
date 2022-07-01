@@ -171,4 +171,23 @@ class HomeController extends Controller
             'title' => 'Mutasi Transaksi'
         ]);
     }
+
+    public function userhome($name)
+    {
+        $names = Konfigurasi::where('id', 1)->get();
+        $alamats = Konfigurasi::where('id', 2)->get();
+        $telps = Konfigurasi::where('id', 3)->get();
+        $was = Konfigurasi::where('id', 4)->get();
+        $logos = Konfigurasi::where('id', 5)->get();
+        $emails = Konfigurasi::where('id', 6)->get();
+        $sign_ups = SignUp::get();
+        $users = User::where('name', $name)->first();
+        $nasabahs = Nasabah::where('nama', $users->name)->first();
+        $rekenings = Rekening::where('id_nasabah', $nasabahs->id)->first();
+        $saldos = Saldo::where('id_rekening', $rekenings->id)->first();
+        $transaksis = Transaksi::where('id_rekening', $rekenings->id)->get();
+        return view('userhome', compact('saldos', 'transaksis', 'sign_ups', 'nasabahs', 'rekenings', 'users', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
+            'title' => 'Nasabah'
+        ]);
+    }
 }

@@ -36,7 +36,7 @@
                                         <th scope="col">NIK</th>
                                         <th scope="col">Jenis Kelamin</th>
                                         <th scope="col">Nomor Rekening</th>
-                                        <th scope="col" class="col-3 ">Aksi</th>
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -53,8 +53,9 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#kredit{{ $nasabah->id }}" class="btn btn-primary">Debet</button>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#debet{{ $nasabah->id }}" class="btn btn-info">Kredit</button>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#debet{{ $nasabah->id }}" class="btn btn-primary">Debet</button>
+                                            <br>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#kredit{{ $nasabah->id }}" class="btn btn-info">Kredit</button>
                                             <a  href="{{ url('/mutasi/'.$nasabah->id) }}" ><button type="button" class="btn btn-danger mt-1">Mutasi</button></a>
                                         </td>
                                         </tr>
@@ -71,11 +72,11 @@
                                         <form method="POST" enctype="multipart/form-data" action="/transaksi-debet/{{ $nasabah->id }}">
                                             @csrf
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-center" id="exampleModalLabel">Transaksi</h5>
+                                            <h5 class="modal-title text-center" id="exampleModalLabel">Debet</h5>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <input type="text" class="form-control {{$errors->has('nominal') ? 'is-invalid' : ''}}" id="nominal" name="nominal" placeholder="Nominal">
+                                                <input type="number" class="form-control {{$errors->has('nominal') ? 'is-invalid' : ''}}" id="nominal" name="nominal1" placeholder="Masukkan Minimal Rp 50000">
                                                 @if($errors->has('nominal'))
                                                     <div class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('nominal') }}</strong>
@@ -87,6 +88,7 @@
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
+                                        </form>
                                         </div>
                                     </div>
                                     </div>
@@ -99,11 +101,11 @@
                                         <form method="POST" enctype="multipart/form-data" action="/transaksi-kredit/{{ $nasabah->id }}">
                                             @csrf
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-center" id="exampleModalLabel">Transaksi</h5>
+                                            <h5 class="modal-title text-center" id="exampleModalLabel">Kredit</h5>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <input type="text" class="form-control {{$errors->has('nominal') ? 'is-invalid' : ''}}" id="nominal" name="nominal" placeholder="Nominal">
+                                                <input type="number" class="form-control {{$errors->has('nominal') ? 'is-invalid' : ''}}" id="nominal" name="nominal2" placeholder="Masukkan minimal Rp 50000">
                                                 @if($errors->has('nominal'))
                                                     <div class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('nominal') }}</strong>
@@ -115,6 +117,7 @@
                                             <button type="submit" class="btn btn-primary">Simpan</button>
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                                         </div>
+                                        </form>
                                         </div>
                                     </div>
                                     </div>

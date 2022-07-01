@@ -14,7 +14,7 @@
 <section class="w3l-mobile-content-6 py-5 bg-light">
     <div class="mobile-info py-lg-2 py-md-4 py-2">
         <div class="container">
-            <h3 class="title mb-5 text-center">Mutasi {{ $nasabah->nama }}</h3>
+            <h3 class="title mb-5 text-center">Mutasi Nasabah {{ $nasabah->nama }}</h3>
             <table class="table title col-8 offset-2">
             <tbody>
                 @foreach ($transaksis as $transaksi)

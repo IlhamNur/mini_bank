@@ -13,12 +13,11 @@ Author URL: http://w3layouts.com
     
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     @foreach ($logos as $logo)
-    <link rel="shortcut icon" href="{{ $logo->value }}">
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/{{ $logo->value }}">
     @endforeach
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
-    
+    <link rel="stylesheet" href="{{asset('assets/css/style-starter.css')}}">
   </head>
   <body>
 <!--header-->
@@ -27,7 +26,7 @@ Author URL: http://w3layouts.com
       <nav class="navbar navbar-expand-lg stroke px-0">
           <h1> <a class="navbar-brand" href="/">
                 @foreach ($logos as $logo)
-                  <span><img src="{{ $logo->value }}" alt="Your logo" title="Your logo" style="height:35px; padding-right: 5px; padding-bottom: 8px;" /></span>
+                  <span><img src="http://127.0.0.1:8000/{{ $logo->value }}" alt="Your logo" title="Your logo" style="height:35px; padding-right: 5px; padding-bottom: 8px;" /></span>
                 @endforeach
                   @foreach ($names as $name) 
                     {{ $name->value }}
@@ -63,11 +62,15 @@ Author URL: http://w3layouts.com
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           {{ Auth::user()->name }}
                         </a>
-
+                        
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                           @role('admin|cs|teller')
                           <a class="dropdown-item" href="\dashboard">
                                 {{ __('Dashboard') }}
+                          </a>
+                          @else
+                          <a class="dropdown-item" href="{{ url('/user-home/'.Auth::user()->name) }}">
+                                {{ __('Akun') }}
                           </a>
                           @endrole
 
@@ -124,7 +127,7 @@ Author URL: http://w3layouts.com
           <div class="col-lg-4 col-md-6 footer-list-29 footer-1 pr-lg-5">
             <div class="footer-logo mb-4">
               @foreach ($logos as $logo)
-              <a class="navbar-brand" href="/"><img src="{{ $logo->value }}" alt="Your logo" title="Your logo" style="height:35px;"/>
+              <a class="navbar-brand" href="/"><img src="http://127.0.0.1:8000/{{ $logo->value }}" alt="Your logo" title="Your logo" style="height:35px;"/>
               @endforeach                   
                 @foreach ($names as $name) 
                   {{ $name->value }}
@@ -182,22 +185,22 @@ Author URL: http://w3layouts.com
 <!-- //footer -->
 
 <!--  javascripts file here -->
-<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
 
-<script src="assets/js/theme-change.js"></script> <!-- //light and dark mode switch js -->
+<script src="{{asset('assets/js/theme-change.js')}}"></script> <!-- light and dark mode switch js -->
 
-<script src="assets/js/circles.js"></script>
+<script src="{{asset('assets/js/circles.js')}}"></script>
 
 <!-- stats number counter-->
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.countup.js"></script>
+<script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.countup.js')}}"></script>
 <script>
   $('.counter').countUp();
 </script>
 <!-- //stats number counter -->
 
 <!-- owl carousel -->
-<script src="assets/js/owl.carousel.js"></script>
+<script src="{{asset('assets/js/owl.carousel.js')}}"></script>
 <!-- script for banner slider-->
 <script>
   $(document).ready(function () {
@@ -293,7 +296,7 @@ Author URL: http://w3layouts.com
 </script>
 <!--//MENU-JS-->
 
-<script src="assets/js/bootstrap.min.js"></script><!-- //bootstrap js -->
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script><!-- //bootstrap js -->
 
 <script>
 

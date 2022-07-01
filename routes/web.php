@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\MutasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +39,12 @@ Route::post('/signup-form', [SignUpController::class, 'store'])->name('signup.st
     
 Auth::routes();
 
+Route::group(['middleware' => ['role:nasabah']], function () {
+    
+    Route::get('/user-home/{id}', [HomeController::class, 'userhome'] )->name('userhome');
+
+});
+
 Route::group(['middleware' => ['role:admin|cs|teller']], function () {
     
     Route::post('/konfigurasi-form/{konfigurasi}', [KonfigurasiController::class, 'update'] )->name('konfigurasi.update');
@@ -61,9 +67,9 @@ Route::group(['middleware' => ['role:admin|teller']], function () {
 
     Route::get('/mutasi/{id}', [HomeController::class, 'mutasi'] )->name('dashboard.mutasi');
 
-    Route::post('/transaksi-debet/{debet}', [TransaksiController::class, 'debet'] )->name('transaksi.debet');
+    Route::post('/transaksi-debet/{id}', [TransaksiController::class, 'debet'] )->name('transaksi.debet');
 
-    Route::post('/transaksi-kredit/{kredit}', [TransaksiController::class, 'kredit'] )->name('transaksi.kredit');
+    Route::post('/transaksi-kredit/{id}', [TransaksiController::class, 'kredit'] )->name('transaksi.kredit');
 
 });
 

@@ -55,7 +55,9 @@
                                   <th scope="row">{{ $loop->iteration }}</th>
                                   <td>{{ $konfigurasi->code }}</td>
                                   <td>{{ $konfigurasi->value }}</td>
+                                  @role('admin')
                                   <td><button type="button" data-bs-toggle="modal" data-bs-target="#tombol{{$loop->iteration}}" class="btn btn-primary">Ubah</button></td>
+                                  @endrole
                                 </tr>
                               @endforeach
                               </tbody>

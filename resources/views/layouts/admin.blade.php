@@ -45,12 +45,16 @@ Author URL: http://w3layouts.com
                   <li class="nav-item {{ ($title === "Dashboard") ? 'active' : '' }}"">
                       <a class="nav-link" href="/dashboard">Konfigurasi<span class="sr-only">(current)</span></a>
                   </li>
+                  @role('admin|cs')
                   <li class="nav-item {{ ($title === "Registrasi") ? 'active' : '' }}"">
                       <a class="nav-link" href="/registrasi">Registrasi</a>
                   </li>
+                  @endrole
+                  @role('admin|teller')
                   <li class="nav-item {{ ($title === "Transaksi") ? 'active' : '' }}"">
                       <a class="nav-link" href="/transaksi">Transaksi</a>
                   </li>
+                  @endrole
               </ul>
               <ul class="navbar-nav mr-1">
                   <li class="nav-item active">
