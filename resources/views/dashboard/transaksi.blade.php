@@ -35,7 +35,6 @@
                                         <th scope="col">Alamat</th>
                                         <th scope="col">NIK</th>
                                         <th scope="col">Jenis Kelamin</th>
-                                        <th scope="col">Nomor Rekening</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                     </thead>
@@ -47,10 +46,6 @@
                                         <td>{{ $nasabah->alamat }}</td>
                                         <td>{{ $nasabah->nik }}</td>
                                         <td>{{ $nasabah->jenis_kelamin }}</td>
-                                        <td>
-                                            @foreach($rekenings as $rekening) 
-                                                {{ $rekening->nomor_rekening }}
-                                            @endforeach
                                         </td>
                                         <td>
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#debet{{ $nasabah->id }}" class="btn btn-primary">Debet</button>

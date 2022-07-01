@@ -145,9 +145,9 @@ class HomeController extends Controller
         $was = Konfigurasi::where('id', 4)->get();
         $logos = Konfigurasi::where('id', 5)->get();
         $emails = Konfigurasi::where('id', 6)->get();
-        $transaksis = Transaksi::get();
-        $rekenings = Rekening::get();
         $nasabahs = Nasabah::get();
+        $transaksis = Transaksi::get();
+        $rekenings = Rekening::first();
         $saldos = Saldo::get();
         return view('dashboard.transaksi', compact('saldos', 'transaksis', 'rekenings', 'nasabahs', 'names', 'alamats', 'telps', 'was', 'logos', 'emails'), [
             'title' => 'Transaksi'

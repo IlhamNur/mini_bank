@@ -16,4 +16,8 @@ class Rekening extends Model
     public function rekening(){
         return $this->hasOne(Rekening::class, 'id', 'id_nasabah');
     }
+
+    public function reken(){
+        return $this->belongsTo('App\Models\Nasabah');;
+    }
 }
