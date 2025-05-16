@@ -1,64 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 💳 mini_bank
 
-## About Laravel
+**mini_bank** is a mini web-based banking application built with Laravel. This project provides basic features like user management, authentication, and role-based access control, making it suitable for learning or further development.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- User authentication (Login & Register)
+- User and role management
+- Blade template-based interface
+- Multilingual support (English available)
+- Modular structure following Laravel standards
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📁 Directory Structure
 
-## Learning Laravel
+- `app/` - Main application logic (controllers, models, etc.)
+- `bootstrap/` - Laravel bootstrap files
+- `config/` - Application configuration files
+- `database/` - Database migrations and seeders
+- `lang/en/` - English language localization files
+- `public/` - Public assets (images, CSS, JS)
+- `resources/` - Blade views and frontend assets
+- `routes/` - Application routing files (`web.php`, etc.)
+- `storage/` - Application-generated files (logs, cache)
+- `tests/` - Unit and feature tests
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🚀 Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+# Clone the repository
+git clone https://github.com/IlhamNur/mini_bank.git
+cd mini_bank
 
-## Laravel Sponsors
+# Install dependencies
+composer install
+npm install && npm run dev
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# Copy the environment file
+cp .env.example .env
 
-### Premium Partners
+# Generate application key
+php artisan key:generate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+# Set up the database and run migrations
+php artisan migrate
 
-## Contributing
+# Start the local development server
+php artisan serve
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🧪 Testing
 
-## Code of Conduct
+To run the tests:
+```bash
+php artisan test
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📌 Technologies Used
 
-## Security Vulnerabilities
+- Laravel (PHP Framework)
+- Blade Templating
+- JavaScript
+- CSS
+- MySQL
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 👥 Contributors
 
-## License
+- [Ilham Nur Romdoni](https://github.com/IlhamNur)
+- [Kristian Budi Pradana Putra](https://github.com/ianKrstn)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📜 License
+
+This project is open-sourced under the [MIT license](LICENSE).
